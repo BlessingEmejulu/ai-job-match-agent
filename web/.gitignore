@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local mock Apify runs
 .mock-apify/
+
+.vercel
+.env*

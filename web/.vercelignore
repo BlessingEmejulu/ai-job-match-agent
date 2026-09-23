@@ -1,0 +1,6 @@
+.env*
+.mock-apify
+.next
+node_modules
+test
+scripts/mock-apify.mjs

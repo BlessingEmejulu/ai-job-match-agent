@@ -30,6 +30,8 @@ export function liveEnabled(): { ok: boolean; missing: string[] } {
         !c.actorId && 'APIFY_ACTOR_ID',
         !c.accessCode && 'LIVE_ACCESS_CODE',
         c.sessionSecret.length < 32 && 'SESSION_SECRET (32+ chars)',
+        // Production refuses live runs without persistent rate limits, so say so up front.
+        process.env.NODE_ENV === 'production' && !(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) && 'UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN',
     ].filter((x): x is string => Boolean(x));
     return { ok: missing.length === 0, missing };
 }
