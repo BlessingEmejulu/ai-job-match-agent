@@ -1,0 +1,14 @@
+{
+    "mode": "discover",
+    "roleKeywords": ["engineer", "analyst", "intern", "graduate"],
+    "countries": ["NG", "KE", "GH"],
+    "employmentTypes": [],
+    "seniorityLevels": [],
+    "workArrangements": [],
+    "includeUnknownEligibility": true,
+    "includeUnknownDeadline": true,
+    "maxResults": 20,
+    "maxRequests": 60,
+    "maxRuntimeSeconds": 180,
+    "ai": { "enabled": false, "maxAnalyses": 10 }
+}

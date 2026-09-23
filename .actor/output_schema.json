@@ -1,0 +1,17 @@
+{
+    "$schema": "https://apify.com/schemas/v1/output.ide.json",
+    "actorOutputSchemaVersion": 1,
+    "title": "AI Job Match Agent output",
+    "properties": {
+        "opportunities": {
+            "type": "string",
+            "title": "Opportunities",
+            "template": "{{links.apiDefaultDatasetUrl}}/items"
+        },
+        "runSummary": {
+            "type": "string",
+            "title": "Run summary",
+            "template": "{{links.apiDefaultKeyValueStoreUrl}}/records/RUN_SUMMARY"
+        }
+    }
+}

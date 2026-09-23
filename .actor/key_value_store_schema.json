@@ -1,0 +1,18 @@
+{
+    "actorKeyValueStoreSchemaVersion": 1,
+    "title": "AI Job Match Agent key-value store",
+    "collections": {
+        "runSummary": {
+            "title": "Run summary",
+            "description": "Sources attempted, counts, exclusions by reason code, AI usage, billing evidence, stop reason and outcome. Contains no candidate profile.",
+            "key": "RUN_SUMMARY",
+            "contentTypes": ["application/json"]
+        },
+        "deliveryState": {
+            "title": "Delivery state",
+            "description": "Job ids already delivered in this run, used to avoid re-delivering and re-billing after a migration or restart.",
+            "key": "DELIVERY_STATE",
+            "contentTypes": ["application/json"]
+        }
+    }
+}

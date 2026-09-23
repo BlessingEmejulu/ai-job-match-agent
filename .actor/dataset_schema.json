@@ -1,0 +1,75 @@
+{
+    "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+    "actorSpecification": 1,
+    "fields": {},
+    "views": {
+        "overview": {
+            "title": "Opportunities",
+            "transformation": {
+                "fields": [
+                    "title",
+                    "company",
+                    "locationText",
+                    "workArrangement",
+                    "seniority",
+                    "earlyCareerFit",
+                    "geographicEligibility.status",
+                    "match.score",
+                    "match.evidenceCoverage",
+                    "deadlineStatus",
+                    "applicationUrl",
+                    "sourcePostedAt"
+                ],
+                "flatten": ["geographicEligibility", "match"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "title": { "label": "Title", "format": "text" },
+                    "company": { "label": "Company", "format": "text" },
+                    "locationText": { "label": "Location", "format": "text" },
+                    "workArrangement": { "label": "Arrangement", "format": "text" },
+                    "seniority": { "label": "Seniority", "format": "text" },
+                    "earlyCareerFit": { "label": "Early-career fit", "format": "text" },
+                    "geographicEligibility.status": { "label": "Location eligibility", "format": "text" },
+                    "match.score": { "label": "Match score", "format": "number" },
+                    "match.evidenceCoverage": { "label": "Evidence coverage", "format": "number" },
+                    "deadlineStatus": { "label": "Deadline", "format": "text" },
+                    "applicationUrl": { "label": "Apply", "format": "link" },
+                    "sourcePostedAt": { "label": "Posted", "format": "date" }
+                }
+            }
+        },
+        "match": {
+            "title": "Match details",
+            "transformation": {
+                "fields": [
+                    "title",
+                    "company",
+                    "match.score",
+                    "match.matchedSkills",
+                    "match.requiredSkillsNotEvidenced",
+                    "match.explanation",
+                    "match.suggestedNextSteps",
+                    "unresolvedRequirements",
+                    "applicationUrl"
+                ],
+                "flatten": ["match"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "title": { "label": "Title", "format": "text" },
+                    "company": { "label": "Company", "format": "text" },
+                    "match.score": { "label": "Score", "format": "number" },
+                    "match.matchedSkills": { "label": "Matched skills", "format": "array" },
+                    "match.requiredSkillsNotEvidenced": { "label": "Required, not evidenced in profile", "format": "array" },
+                    "match.explanation": { "label": "Why", "format": "text" },
+                    "match.suggestedNextSteps": { "label": "Next steps", "format": "array" },
+                    "unresolvedRequirements": { "label": "To confirm", "format": "array" },
+                    "applicationUrl": { "label": "Apply", "format": "link" }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,139 @@
+{
+    "$schema": "https://apify.com/schemas/v1/input.ide.json",
+    "title": "AI Job Match Agent input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "mode": {
+            "title": "Mode",
+            "type": "string",
+            "description": "<b>discover</b>: find and analyse opportunities. <b>match</b>: also compare each one with the candidate profile below.",
+            "editor": "select",
+            "enum": ["discover", "match"],
+            "enumTitles": ["Discover opportunities", "Discover and match to a profile"],
+            "default": "discover",
+            "prefill": "match"
+        },
+        "roleKeywords": {
+            "title": "Role keywords",
+            "type": "array",
+            "description": "Keep jobs whose title or department contains every word of at least one keyword, e.g. \"software engineer\", \"data analyst\", \"intern\". Leave empty to use the candidate's desired roles (match mode) or keep all roles.",
+            "editor": "stringList",
+            "prefill": ["engineer", "analyst", "intern"],
+            "default": []
+        },
+        "countries": {
+            "title": "Countries (ISO codes)",
+            "type": "array",
+            "description": "Two-letter ISO country codes where you can work from, e.g. NG, KE, GH, ZA, EG, RW. Jobs whose location evidence excludes all of these are dropped; remote jobs with no stated scope are kept as 'unknown' unless you turn that off below.",
+            "editor": "stringList",
+            "prefill": ["NG", "KE"]
+        },
+        "employmentTypes": {
+            "title": "Employment types",
+            "type": "array",
+            "description": "Leave empty for all. Jobs whose type is not stated are kept and labelled.",
+            "editor": "select",
+            "items": {
+                "type": "string",
+                "enum": ["full_time", "part_time", "contract", "internship", "apprenticeship", "temporary"],
+                "enumTitles": ["Full-time", "Part-time", "Contract", "Internship", "Apprenticeship", "Temporary"]
+            },
+            "default": []
+        },
+        "seniorityLevels": {
+            "title": "Seniority levels",
+            "type": "array",
+            "description": "Leave empty for all. Jobs whose seniority cannot be determined are kept and labelled.",
+            "editor": "select",
+            "items": {
+                "type": "string",
+                "enum": ["internship", "graduate", "entry", "junior", "mid", "senior", "lead", "executive"],
+                "enumTitles": ["Internship", "Graduate / trainee", "Entry level", "Junior", "Mid level", "Senior", "Lead / principal", "Executive"]
+            },
+            "default": []
+        },
+        "workArrangements": {
+            "title": "Work arrangements",
+            "type": "array",
+            "description": "Leave empty for all. Jobs that do not state an arrangement are kept and labelled.",
+            "editor": "select",
+            "items": {
+                "type": "string",
+                "enum": ["remote", "hybrid", "onsite"],
+                "enumTitles": ["Remote", "Hybrid", "On-site"]
+            },
+            "default": []
+        },
+        "includeUnknownEligibility": {
+            "title": "Include jobs with unknown location eligibility",
+            "type": "boolean",
+            "description": "For example 'Remote' with no country list. They are labelled 'unknown', never 'eligible'.",
+            "default": true
+        },
+        "includeUnknownDeadline": {
+            "title": "Include jobs without a stated deadline",
+            "type": "boolean",
+            "description": "Most job boards do not publish deadlines. Expired jobs are always excluded.",
+            "default": true
+        },
+        "sourceIds": {
+            "title": "Source ids (optional)",
+            "type": "array",
+            "description": "Restrict to specific verified boards, e.g. greenhouse:moniepoint, lever:dlocal. See the README for the full list. Leave empty to let the Actor pick the most relevant boards.",
+            "editor": "stringList",
+            "sectionCaption": "Sources and limits"
+        },
+        "maxResults": {
+            "title": "Max results",
+            "type": "integer",
+            "description": "Maximum opportunities delivered (and billed) in this run.",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 20
+        },
+        "maxRequests": {
+            "title": "Max requests",
+            "type": "integer",
+            "description": "Maximum HTTP requests to job-board APIs, including retries.",
+            "minimum": 1,
+            "maximum": 200,
+            "default": 60
+        },
+        "maxRuntimeSeconds": {
+            "title": "Max runtime (seconds)",
+            "type": "integer",
+            "description": "Soft runtime budget. The Actor stops collecting and delivers what it has before this limit.",
+            "minimum": 30,
+            "maximum": 600,
+            "default": 180
+        },
+        "candidateProfile": {
+            "title": "Candidate profile (match mode)",
+            "type": "object",
+            "description": "Required in match mode. Fields: skills (array), yearsExperience (number), desiredRoles (array), country (ISO code), and optionally timezone, educationLevel (secondary, diploma, bachelor, master, doctorate, bootcamp, other), studentStatus (enrolled, graduated, not_student), workAuthorizationCountries (ISO codes you are authorized to work in), experienceSummary. Do not include your name, email, age, gender or photo. The profile is used only in this run and is never written to the dataset.",
+            "editor": "json",
+            "sectionCaption": "Candidate profile",
+            "prefill": {
+                "skills": ["JavaScript", "React", "TypeScript", "Git", "SQL"],
+                "yearsExperience": 1,
+                "desiredRoles": ["frontend engineer", "software engineer", "intern"],
+                "country": "NG",
+                "timezone": "Africa/Lagos",
+                "educationLevel": "bachelor",
+                "studentStatus": "graduated",
+                "workAuthorizationCountries": ["NG"]
+            }
+        },
+        "ai": {
+            "title": "AI assistance",
+            "type": "object",
+            "description": "{ \"enabled\": true, \"maxAnalyses\": 10 } lets a language model extract requirements from up to maxAnalyses of the most ambiguous postings. Every AI finding must quote the posting or it is discarded. Only active when the Actor owner has configured ANTHROPIC_API_KEY and a per-run cap (AI_MAX_ANALYSES_CAP); otherwise the run falls back to rules-only analysis and says so in the run summary. Job text is sent to Anthropic for these calls; the candidate profile is not.",
+            "editor": "json",
+            "sectionCaption": "AI assistance (optional)",
+            "default": { "enabled": false, "maxAnalyses": 10 },
+            "prefill": { "enabled": false, "maxAnalyses": 10 }
+        }
+    },
+    "required": ["countries"]
+}

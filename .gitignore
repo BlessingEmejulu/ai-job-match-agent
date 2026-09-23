@@ -1,0 +1,16 @@
+node_modules/
+dist/
+storage/
+apify_storage/
+crawlee_storage/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+coverage/
+web/.next/
+web/node_modules/
+web/.vercel/
+web/next-env.d.ts
+*.tsbuildinfo

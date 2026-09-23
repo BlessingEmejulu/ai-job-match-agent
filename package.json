@@ -1,0 +1,33 @@
+{
+    "name": "ai-job-match-agent",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "description": "Apify Actor that discovers public job and internship listings from verified employer boards, checks geographic eligibility for African applicants, and explains candidate matches with evidence.",
+    "engines": {
+        "node": ">=22"
+    },
+    "scripts": {
+        "start": "npm run start:dev",
+        "start:prod": "node dist/main.js",
+        "start:dev": "tsx src/main.ts",
+        "build": "tsc -p tsconfig.build.json",
+        "typecheck": "tsc -p tsconfig.json --noEmit",
+        "test": "vitest run",
+        "test:live": "vitest run --config vitest.live.config.ts"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "@anthropic-ai/sdk": "^0.128.0",
+        "apify": "^3.7.2",
+        "cheerio": "^1.2.0",
+        "zod": "^4.6.5"
+    },
+    "devDependencies": {
+        "@apify/tsconfig": "^0.2.0",
+        "@types/node": "^24.13.6",
+        "tsx": "^4.23.15",
+        "typescript": "^6.0.3",
+        "vitest": "^5.0.1"
+    }
+}

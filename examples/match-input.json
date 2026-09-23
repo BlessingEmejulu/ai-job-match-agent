@@ -1,0 +1,25 @@
+{
+    "mode": "match",
+    "roleKeywords": [],
+    "countries": ["NG"],
+    "employmentTypes": ["full_time", "internship"],
+    "seniorityLevels": ["internship", "graduate", "entry", "junior", "mid"],
+    "workArrangements": ["remote", "hybrid"],
+    "includeUnknownEligibility": true,
+    "includeUnknownDeadline": true,
+    "maxResults": 15,
+    "maxRequests": 60,
+    "maxRuntimeSeconds": 180,
+    "candidateProfile": {
+        "skills": ["Python", "SQL", "Excel", "Power BI", "Statistics", "Data Analysis", "Communication"],
+        "yearsExperience": 1,
+        "desiredRoles": ["data analyst", "business analyst", "analytics"],
+        "country": "NG",
+        "timezone": "Africa/Lagos",
+        "educationLevel": "bachelor",
+        "studentStatus": "graduated",
+        "workAuthorizationCountries": ["NG"],
+        "experienceSummary": "Fictional profile for demonstration: one year of data internship work building SQL reports and Power BI dashboards for a retail cooperative."
+    },
+    "ai": { "enabled": false, "maxAnalyses": 10 }
+}

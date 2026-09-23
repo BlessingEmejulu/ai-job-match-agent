@@ -1,0 +1,438 @@
+{
+  "_label": "EXAMPLE OUTPUT from a live local run on 2026-09-23T17:50:59.616Z (Actor v0.1, match mode, examples/match-input.json with a FICTIONAL candidate profile). Job data is public data from the listed employer boards as retrieved at that time; postings change or close. Not a live result.",
+  "runSummaryExcerpt": {
+    "outcome": "results_delivered",
+    "stopReason": "completed",
+    "requests": {
+      "used": 6,
+      "limit": 60
+    },
+    "counts": {
+      "listingsDiscovered": 920,
+      "duplicatesRemoved": 1,
+      "invalidListings": 0,
+      "expiredExcluded": 0,
+      "excludedByReason": {
+        "ROLE_KEYWORD_MISMATCH": 880,
+        "LOCATION_OUTSIDE_SELECTED_COUNTRIES": 14,
+        "SENIORITY_MISMATCH": 18,
+        "DUPLICATE_COMPANY_TITLE_LOCATION": 1
+      },
+      "candidates": 7,
+      "shortlisted": 7,
+      "invalidRecords": 0,
+      "opportunitiesDelivered": 7
+    },
+    "eligibilityCounts": {
+      "explicitly_supported": 7,
+      "explicitly_restricted": 0,
+      "unknown": 0
+    },
+    "decisions": [
+      "DISCOVER: reading greenhouse:flyzipline, lever:dlocal, greenhouse:alxafrica, greenhouse:jumia (ranked by relevance to NG).",
+      "DECIDE: no roleKeywords given; filtering titles by the candidate's desired roles.",
+      "DECIDE: expand once → greenhouse:moniepoint, greenhouse:canonical. Only 1 candidate(s) for 15 requested; adding the next most relevant verified sources.",
+      "DECIDE: 920 listings → 7 candidates (1 duplicates removed; excluded: ROLE_KEYWORD_MISMATCH 880, SENIORITY_MISMATCH 18, LOCATION_OUTSIDE_SELECTED_COUNTRIES 14, DUPLICATE_COMPANY_TITLE_LOCATION 1).",
+      "ANALYZE: rules-only (ai.enabled is false).",
+      "DELIVER: 7 opportunities written; 0 'opportunity-delivered' event(s) charged (run is not pay-per-event, so nothing was charged)."
+    ]
+  },
+  "records": [
+    {
+      "schemaVersion": "1.0",
+      "jobId": "9c1360040194ee678d2f",
+      "sourceJobId": "5703396",
+      "title": "Python and Kubernetes Software Engineer - Data, Workflows, AI/ML & Analytics",
+      "company": "Canonical",
+      "source": {
+        "id": "greenhouse:canonical",
+        "family": "greenhouse",
+        "boardId": "canonical"
+      },
+      "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/5703396",
+      "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/5703396",
+      "discoveredAt": "2026-09-23T17:50:59.616Z",
+      "sourcePostedAt": "2024-04-11T15:09:05.000Z",
+      "sourceUpdatedAt": "2026-08-05T22:23:33.000Z",
+      "freshnessDays": 48,
+      "deadline": null,
+      "deadlineStatus": "unknown",
+      "locationText": "Home based - Worldwide",
+      "countries": [],
+      "regions": [
+        "Worldwide"
+      ],
+      "workArrangement": "remote",
+      "employmentType": "full_time",
+      "seniority": "unknown",
+      "earlyCareerFit": "unknown",
+      "experience": {
+        "minYears": null,
+        "maxYears": null,
+        "evidence": null
+      },
+      "education": {
+        "level": "bachelor",
+        "requirement": "required",
+        "evidence": "Undergraduate degree in a technical subject or a compelling narrative about your alternative chosen path"
+      },
+      "studentStatusRequired": {
+        "required": false,
+        "evidence": null
+      },
+      "requiredSkills": [
+        "Python"
+      ],
+      "requiredSkillAlternatives": [],
+      "preferredSkills": [
+        "Linux",
+        "Ubuntu",
+        "Machine Learning",
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "Azure",
+        "GCP"
+      ],
+      "salary": null,
+      "shortDescription": "Canonical is a leading provider of open source software and operating systems to the global enterprise and technology markets. Our platform, Ubuntu, is very widely used in breakthrough enterprise initiatives such as public cloud, data science, AI, engineering innovation and IoT. Our customers include the world's leading public cloud and silicon providers, and industry leaders in many sectors. The company is a pioneer of global distributed collaboration, with 1000+…",
+      "geographicEligibility": {
+        "status": "explicitly_supported",
+        "basis": "worldwide",
+        "assessedFor": [
+          "NG"
+        ],
+        "summary": "Location evidence includes your declared location. This does not confirm legal work authorization or that the employer will hire there."
+      },
+      "eligibilityReasons": [
+        {
+          "code": "REMOTE_WORLDWIDE",
+          "message": "Location is stated as worldwide / anywhere.",
+          "evidence": "Home based - Worldwide"
+        }
+      ],
+      "unresolvedRequirements": [
+        "Education requirement: bachelor."
+      ],
+      "evidence": [
+        {
+          "field": "title",
+          "excerpt": "Python and Kubernetes Software Engineer - Data, Workflows, AI/ML & Analytics",
+          "origin": "structured_field"
+        },
+        {
+          "field": "location",
+          "excerpt": "Home based - Worldwide",
+          "origin": "structured_field"
+        },
+        {
+          "field": "employmentType",
+          "excerpt": "Full-time",
+          "origin": "structured_field"
+        },
+        {
+          "field": "workArrangement",
+          "excerpt": "Home based - Worldwide",
+          "origin": "structured_field"
+        },
+        {
+          "field": "education",
+          "excerpt": "Undergraduate degree in a technical subject or a compelling narrative about your alternative chosen path",
+          "origin": "description"
+        },
+        {
+          "field": "requiredSkills.Python",
+          "excerpt": "Professional or academic software delivery using Python",
+          "origin": "description"
+        },
+        {
+          "field": "preferredSkills.Linux",
+          "excerpt": "Experience with Linux (Debian or Ubuntu preferred)",
+          "origin": "description"
+        },
+        {
+          "field": "preferredSkills.Ubuntu",
+          "excerpt": "Experience with Linux (Debian or Ubuntu preferred)",
+          "origin": "description"
+        },
+        {
+          "field": "preferredSkills.Machine Learning",
+          "excerpt": "Proven track record of building highly automated machine learning solutions, data pipelines, or orchestrating workflows for the cloud.",
+          "origin": "description"
+        },
+        {
+          "field": "preferredSkills.Docker",
+          "excerpt": "Experience with container technologies (Docker, LXD, Kubernetes, etc.)",
+          "origin": "description"
+        },
+        {
+          "field": "preferredSkills.Kubernetes",
+          "excerpt": "Experience with container technologies (Docker, LXD, Kubernetes, etc.)",
+          "origin": "description"
+        },
+        {
+          "field": "preferredSkills.AWS",
+          "excerpt": "Experience with public clouds (AWS, Azure, Google Cloud)",
+          "origin": "description"
+        },
+        {
+          "field": "preferredSkills.Azure",
+          "excerpt": "Experience with public clouds (AWS, Azure, Google Cloud)",
+          "origin": "description"
+        },
+        {
+          "field": "preferredSkills.GCP",
+          "excerpt": "Experience with public clouds (AWS, Azure, Google Cloud)",
+          "origin": "description"
+        }
+      ],
+      "provenance": {
+        "adapter": "greenhouse-job-board-api-v1",
+        "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+        "retrievedAt": "2026-09-23T17:51:10.756Z",
+        "registryVerifiedAt": "2026-09-23"
+      },
+      "qualityWarnings": [],
+      "duplicateSourceReferences": [],
+      "analysisMode": "rules_only",
+      "decisionReasons": [
+        "ROLE_KEYWORD_MATCH:data analyst",
+        "EMPLOYMENT_TYPE_MATCH:full_time",
+        "SENIORITY_UNKNOWN_KEPT",
+        "WORK_ARRANGEMENT_MATCH:remote",
+        "DEADLINE_UNKNOWN_KEPT",
+        "LOCATION_EXPLICITLY_SUPPORTED"
+      ],
+      "match": {
+        "status": "scored",
+        "score": 83,
+        "scoreBreakdown": [
+          {
+            "dimension": "required_skills",
+            "weight": 45,
+            "scored": true,
+            "value": 1,
+            "note": "1 of 1 required skill items evidenced in your profile."
+          },
+          {
+            "dimension": "preferred_skills",
+            "weight": 10,
+            "scored": true,
+            "value": 0,
+            "note": "0 of 8 preferred skills evidenced in your profile."
+          },
+          {
+            "dimension": "experience",
+            "weight": 20,
+            "scored": false,
+            "value": null,
+            "note": "The posting does not state an experience level."
+          },
+          {
+            "dimension": "role_alignment",
+            "weight": 15,
+            "scored": true,
+            "value": 0.76,
+            "note": "Best overlap between your desired roles and \"Python and Kubernetes Software Engineer - Data, Workflows, AI/ML & Analytics\" is 76%."
+          },
+          {
+            "dimension": "preferences",
+            "weight": 10,
+            "scored": true,
+            "value": 1,
+            "note": "Employment type full_time matches; work arrangement remote matches."
+          }
+        ],
+        "evidenceCoverage": 0.8,
+        "matchedSkills": [
+          "Python"
+        ],
+        "requiredSkillsNotEvidenced": [],
+        "preferredSkillsNotEvidenced": [
+          "Linux",
+          "Ubuntu",
+          "Machine Learning",
+          "Docker",
+          "Kubernetes",
+          "AWS",
+          "Azure",
+          "GCP"
+        ],
+        "experienceAssessment": {
+          "status": "unknown",
+          "note": "The posting does not state an experience requirement."
+        },
+        "requirementChecks": [
+          {
+            "requirement": "Education: bachelor",
+            "status": "met",
+            "note": "You declared bachelor."
+          }
+        ],
+        "explanation": "Relevance 83/100, based on 80% of the weighted criteria the posting provides evidence for (not a hiring probability). Your profile shows 1 of 1 required skill items (Python). Preferred but not evidenced: Linux, Ubuntu, Machine Learning, Docker and 4 more. Location: Location is stated as worldwide / anywhere. This does not confirm work authorization.",
+        "suggestedNextSteps": [
+          "Tailor your CV to the responsibilities in the posting and apply on the employer’s page."
+        ]
+      }
+    },
+    {
+      "schemaVersion": "1.0",
+      "jobId": "7321882980f3246448ae",
+      "sourceJobId": "7978313003",
+      "title": "Aviation Compliance Analyst- Africa",
+      "company": "Zipline",
+      "source": {
+        "id": "greenhouse:flyzipline",
+        "family": "greenhouse",
+        "boardId": "flyzipline"
+      },
+      "sourceUrl": "https://www.zipline.com/open-roles/7978313003?gh_jid=7978313003",
+      "applicationUrl": "https://www.zipline.com/open-roles/7978313003?gh_jid=7978313003",
+      "discoveredAt": "2026-09-23T17:50:59.616Z",
+      "sourcePostedAt": "2026-08-26T15:44:44.000Z",
+      "sourceUpdatedAt": "2026-09-17T17:05:10.000Z",
+      "freshnessDays": 6,
+      "deadline": null,
+      "deadlineStatus": "unknown",
+      "locationText": "Abuja, Nigeria",
+      "countries": [
+        "NG"
+      ],
+      "regions": [],
+      "workArrangement": "unspecified",
+      "employmentType": "unknown",
+      "seniority": "mid",
+      "earlyCareerFit": "possible",
+      "experience": {
+        "minYears": 2,
+        "maxYears": 5,
+        "evidence": "2-5 years experience in aviation compliance, quality, safety, documentation control, or aviation/flight operations (UAS or manned aviation)."
+      },
+      "education": {
+        "level": null,
+        "requirement": "not_stated",
+        "evidence": null
+      },
+      "studentStatusRequired": {
+        "required": false,
+        "evidence": null
+      },
+      "requiredSkills": [],
+      "requiredSkillAlternatives": [],
+      "preferredSkills": [],
+      "salary": null,
+      "shortDescription": "Zipline is looking for an Aviation Compliance Analyst to support aviation regulatory compliance across our Africa operations. This role will help ensure that Zipline’s flight operations, site operations, regulatory submissions, reporting practices, and internal compliance processes remain aligned with applicable aviation requirements and Zipline’s safety and operational standards. You will work closely with the Global Aviation team, Africa regulatory and operations teams,…",
+      "geographicEligibility": {
+        "status": "explicitly_supported",
+        "basis": "country",
+        "assessedFor": [
+          "NG"
+        ],
+        "summary": "Location evidence includes your declared location. This does not confirm legal work authorization or that the employer will hire there."
+      },
+      "eligibilityReasons": [
+        {
+          "code": "LOCATION_LISTED",
+          "message": "Role is listed in Abuja, Nigeria; remote work is not stated.",
+          "evidence": "Abuja, Nigeria"
+        }
+      ],
+      "unresolvedRequirements": [],
+      "evidence": [
+        {
+          "field": "title",
+          "excerpt": "Aviation Compliance Analyst- Africa",
+          "origin": "structured_field"
+        },
+        {
+          "field": "location",
+          "excerpt": "Abuja, Nigeria",
+          "origin": "structured_field"
+        },
+        {
+          "field": "seniority",
+          "excerpt": "derived from a stated minimum of 2 year(s) of experience",
+          "origin": "description"
+        },
+        {
+          "field": "experience",
+          "excerpt": "2-5 years experience in aviation compliance, quality, safety, documentation control, or aviation/flight operations (UAS or manned aviation).",
+          "origin": "description"
+        }
+      ],
+      "provenance": {
+        "adapter": "greenhouse-job-board-api-v1",
+        "apiUrl": "https://boards-api.greenhouse.io/v1/boards/flyzipline/jobs?content=true",
+        "retrievedAt": "2026-09-23T17:51:03.749Z",
+        "registryVerifiedAt": "2026-09-23"
+      },
+      "qualityWarnings": [
+        "EMPLOYMENT_TYPE_UNKNOWN"
+      ],
+      "duplicateSourceReferences": [],
+      "analysisMode": "rules_only",
+      "decisionReasons": [
+        "ROLE_KEYWORD_MATCH:analytics",
+        "EMPLOYMENT_TYPE_UNKNOWN_KEPT",
+        "SENIORITY_MATCH:mid",
+        "WORK_ARRANGEMENT_UNSPECIFIED_KEPT",
+        "DEADLINE_UNKNOWN_KEPT",
+        "LOCATION_EXPLICITLY_SUPPORTED"
+      ],
+      "match": {
+        "status": "insufficient_evidence",
+        "score": null,
+        "scoreBreakdown": [
+          {
+            "dimension": "required_skills",
+            "weight": 45,
+            "scored": false,
+            "value": null,
+            "note": "No recognised required skills in the posting."
+          },
+          {
+            "dimension": "preferred_skills",
+            "weight": 10,
+            "scored": false,
+            "value": null,
+            "note": "No recognised preferred skills in the posting."
+          },
+          {
+            "dimension": "experience",
+            "weight": 20,
+            "scored": true,
+            "value": 0.5,
+            "note": "You declared 1 year(s); the posting asks for at least 2 year(s)."
+          },
+          {
+            "dimension": "role_alignment",
+            "weight": 15,
+            "scored": true,
+            "value": 0.74,
+            "note": "Best overlap between your desired roles and \"Aviation Compliance Analyst- Africa\" is 74%."
+          },
+          {
+            "dimension": "preferences",
+            "weight": 10,
+            "scored": false,
+            "value": null,
+            "note": "No comparable employment-type or work-arrangement preference."
+          }
+        ],
+        "evidenceCoverage": 0.35,
+        "matchedSkills": [],
+        "requiredSkillsNotEvidenced": [],
+        "preferredSkillsNotEvidenced": [],
+        "experienceAssessment": {
+          "status": "below",
+          "note": "Below: you declared 1 year(s); the posting asks for at least 2 year(s)."
+        },
+        "requirementChecks": [],
+        "explanation": "Not scored: the posting gives evidence for only 35% of the weighted criteria, which is too little for a reliable score. Below: you declared 1 year(s); the posting asks for at least 2 year(s). (\"2-5 years experience in aviation compliance, quality, safety, documentation control, or aviation/flight operations…\") Location: Role is listed in Abuja, Nigeria; remote work is not stated. This does not confirm work authorization.",
+        "suggestedNextSteps": [
+          "Lead your application with projects that show equivalent hands-on experience."
+        ]
+      }
+    }
+  ]
+}

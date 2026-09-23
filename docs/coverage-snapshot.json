@@ -1,0 +1,406 @@
+{
+  "measuredAt": "2026-09-23T17:27:00.601Z",
+  "requestsUsed": 11,
+  "boards": [
+    {
+      "id": "greenhouse:moniepoint",
+      "error": null,
+      "requests": 1,
+      "listings": 183,
+      "africaCountryListings": 105,
+      "worldwide": 0,
+      "remote": 121,
+      "earlyCareer": 14,
+      "withDeadline": 0,
+      "withSalary": 0,
+      "withPostedDate": 183,
+      "withRequiredSkills": 151,
+      "topCountries": [
+        [
+          "NG",
+          81
+        ],
+        [
+          "ES",
+          25
+        ],
+        [
+          "PL",
+          24
+        ],
+        [
+          "PT",
+          18
+        ],
+        [
+          "KE",
+          18
+        ],
+        [
+          "IN",
+          17
+        ],
+        [
+          "GB",
+          14
+        ],
+        [
+          "ZA",
+          12
+        ],
+        [
+          "PK",
+          10
+        ],
+        [
+          "NE",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "greenhouse:jumia",
+      "error": null,
+      "requests": 1,
+      "listings": 23,
+      "africaCountryListings": 21,
+      "worldwide": 0,
+      "remote": 0,
+      "earlyCareer": 1,
+      "withDeadline": 1,
+      "withSalary": 0,
+      "withPostedDate": 23,
+      "withRequiredSkills": 14,
+      "topCountries": [
+        [
+          "GH",
+          6
+        ],
+        [
+          "NG",
+          4
+        ],
+        [
+          "SN",
+          4
+        ],
+        [
+          "KE",
+          3
+        ],
+        [
+          "EG",
+          2
+        ],
+        [
+          "PT",
+          2
+        ],
+        [
+          "UG",
+          1
+        ],
+        [
+          "CI",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "greenhouse:alxafrica",
+      "error": null,
+      "requests": 1,
+      "listings": 14,
+      "africaCountryListings": 5,
+      "worldwide": 0,
+      "remote": 9,
+      "earlyCareer": 1,
+      "withDeadline": 0,
+      "withSalary": 0,
+      "withPostedDate": 14,
+      "withRequiredSkills": 10,
+      "topCountries": [
+        [
+          "ZA",
+          3
+        ],
+        [
+          "RW",
+          1
+        ],
+        [
+          "NG",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "greenhouse:flyzipline",
+      "error": null,
+      "requests": 1,
+      "listings": 341,
+      "africaCountryListings": 21,
+      "worldwide": 1,
+      "remote": 6,
+      "earlyCareer": 92,
+      "withDeadline": 0,
+      "withSalary": 0,
+      "withPostedDate": 341,
+      "withRequiredSkills": 205,
+      "topCountries": [
+        [
+          "US",
+          318
+        ],
+        [
+          "CI",
+          9
+        ],
+        [
+          "RW",
+          6
+        ],
+        [
+          "NG",
+          5
+        ],
+        [
+          "GB",
+          2
+        ],
+        [
+          "AU",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "greenhouse:canonical",
+      "error": null,
+      "requests": 1,
+      "listings": 305,
+      "africaCountryListings": 0,
+      "worldwide": 96,
+      "remote": 279,
+      "earlyCareer": 19,
+      "withDeadline": 0,
+      "withSalary": 0,
+      "withPostedDate": 305,
+      "withRequiredSkills": 251,
+      "topCountries": [
+        [
+          "TW",
+          16
+        ],
+        [
+          "GB",
+          13
+        ],
+        [
+          "CN",
+          9
+        ],
+        [
+          "CA",
+          2
+        ],
+        [
+          "JP",
+          1
+        ]
+      ]
+    },
+    {
+      "id": "greenhouse:gitlab",
+      "error": null,
+      "requests": 1,
+      "listings": 204,
+      "africaCountryListings": 0,
+      "worldwide": 0,
+      "remote": 183,
+      "earlyCareer": 0,
+      "withDeadline": 0,
+      "withSalary": 0,
+      "withPostedDate": 204,
+      "withRequiredSkills": 142,
+      "topCountries": [
+        [
+          "US",
+          100
+        ],
+        [
+          "CA",
+          59
+        ],
+        [
+          "GB",
+          43
+        ],
+        [
+          "IN",
+          25
+        ],
+        [
+          "PL",
+          13
+        ],
+        [
+          "DE",
+          11
+        ],
+        [
+          "IL",
+          9
+        ],
+        [
+          "IE",
+          7
+        ],
+        [
+          "NL",
+          5
+        ],
+        [
+          "FR",
+          5
+        ],
+        [
+          "SG",
+          5
+        ],
+        [
+          "AU",
+          4
+        ]
+      ]
+    },
+    {
+      "id": "lever:dlocal",
+      "error": null,
+      "requests": 1,
+      "listings": 54,
+      "africaCountryListings": 9,
+      "worldwide": 0,
+      "remote": 1,
+      "earlyCareer": 0,
+      "withDeadline": 0,
+      "withSalary": 0,
+      "withPostedDate": 54,
+      "withRequiredSkills": 26,
+      "topCountries": [
+        [
+          "UY",
+          30
+        ],
+        [
+          "BR",
+          25
+        ],
+        [
+          "AR",
+          24
+        ],
+        [
+          "ES",
+          22
+        ],
+        [
+          "CN",
+          12
+        ],
+        [
+          "SG",
+          5
+        ],
+        [
+          "GB",
+          5
+        ],
+        [
+          "ZA",
+          4
+        ],
+        [
+          "MY",
+          4
+        ],
+        [
+          "RO",
+          3
+        ],
+        [
+          "SA",
+          2
+        ],
+        [
+          "NG",
+          2
+        ]
+      ]
+    },
+    {
+      "id": "lever:binance",
+      "error": null,
+      "requests": 4,
+      "listings": 307,
+      "africaCountryListings": 6,
+      "worldwide": 7,
+      "remote": 258,
+      "earlyCareer": 86,
+      "withDeadline": 0,
+      "withSalary": 0,
+      "withPostedDate": 307,
+      "withRequiredSkills": 220,
+      "topCountries": [
+        [
+          "HK",
+          161
+        ],
+        [
+          "TW",
+          160
+        ],
+        [
+          "AU",
+          41
+        ],
+        [
+          "AE",
+          37
+        ],
+        [
+          "TH",
+          18
+        ],
+        [
+          "VN",
+          14
+        ],
+        [
+          "JP",
+          14
+        ],
+        [
+          "AR",
+          11
+        ],
+        [
+          "MY",
+          10
+        ],
+        [
+          "NZ",
+          9
+        ],
+        [
+          "MX",
+          8
+        ],
+        [
+          "CO",
+          7
+        ]
+      ]
+    }
+  ]
+}

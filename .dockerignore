@@ -1,0 +1,17 @@
+.git
+.github
+.idea
+.vscode
+node_modules
+dist
+storage
+apify_storage
+crawlee_storage
+web
+docs
+examples
+test
+scripts
+*.md
+.env
+.env.*
