@@ -33,7 +33,9 @@ Implementation (`src/billing/delivery.ts`, `src/main.ts`):
 In Apify Console → the Actor → **Publication** → **Monetization** → pay per event:
 
 1. Add a custom event: name **`opportunity-delivered`** (must match exactly), title *Opportunity delivered*,
-   description as above, and set it as the **primary event**.
+   description as above, and set it as the **primary event**. If the name does not match, the SDK
+   (`apify@3.7.2`) logs "Attempting to charge for an unknown event" and charges nothing — check the first
+   cloud run's log for that warning.
 2. **Remove the synthetic `apify-default-dataset-item` event.** It is enabled by default for new PPE Actors and
    would charge a second time for every dataset item.
 3. `apify-actor-start`: Apify recommends keeping it (default $0.00005 per start per GB, and Apify then covers

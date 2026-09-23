@@ -62,8 +62,11 @@
   board and up to five per Lever board per run, with bounded retries.
 - A board that changes its token or leaves its ATS will fail and be reported in `RUN_SUMMARY`; the run
   continues with other boards.
-- The Docker image was not built locally in this session (Docker Desktop's engine did not start); the
-  Apify cloud build compiles the same Dockerfile.
+- The Docker image was not built locally during development (Docker Desktop's engine did not start); the
+  Apify cloud build compiles the same Dockerfile. The TypeScript build it runs (`npm run build`) passes locally.
+- GitHub Actions CI is defined (`.github/workflows/ci.yml`: Actor typecheck/tests/build, Docker build, web
+  typecheck/tests/build) but its first runs did not start: GitHub reported the repository owner's account
+  as locked due to a billing issue. The same commands pass locally.
 
 ## Future scope (not in the MVP)
 
