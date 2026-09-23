@@ -224,12 +224,10 @@ export function toOpportunity(
     if (req.studentOnly.required) unresolved.push('The posting is for current students only.');
     if (req.education.requirement === 'required' && req.education.level) unresolved.push(`Education requirement: ${req.education.level}.`);
 
+    // Prefer what the role involves over company boilerplate, which usually opens a posting.
+    const describe = (section: string) => job.lines.filter((l) => l.section === section && l.text.length > 30).map((l) => l.text);
     const shortDescription = truncate(
-        job.lines
-            .filter((l) => l.section !== 'about' && l.section !== 'benefits' && l.text.length > 40)
-            .map((l) => l.text)
-            .slice(0, 3)
-            .join(' ') || cleanLine(job.plainText),
+        (describe('responsibilities').length ? describe('responsibilities') : describe('other')).slice(0, 3).join(' ') || cleanLine(job.plainText),
         480,
     );
 

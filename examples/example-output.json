@@ -1,5 +1,5 @@
 {
-  "_label": "EXAMPLE OUTPUT from a live local run on 2026-09-23T17:50:59.616Z (Actor v0.1, match mode, examples/match-input.json with a FICTIONAL candidate profile). Job data is public data from the listed employer boards as retrieved at that time; postings change or close. Not a live result.",
+  "_label": "EXAMPLE OUTPUT from a live local run on 2026-09-23T18:26:54.068Z (Actor v0.1, match mode, examples/match-input.json with a FICTIONAL candidate profile). Job data is public data from the listed employer boards as retrieved at that time; postings change or close. Not a live result.",
   "runSummaryExcerpt": {
     "outcome": "results_delivered",
     "stopReason": "completed",
@@ -14,8 +14,8 @@
       "expiredExcluded": 0,
       "excludedByReason": {
         "ROLE_KEYWORD_MISMATCH": 880,
-        "LOCATION_OUTSIDE_SELECTED_COUNTRIES": 14,
         "SENIORITY_MISMATCH": 18,
+        "LOCATION_OUTSIDE_SELECTED_COUNTRIES": 14,
         "DUPLICATE_COMPANY_TITLE_LOCATION": 1
       },
       "candidates": 7,
@@ -29,9 +29,9 @@
       "unknown": 0
     },
     "decisions": [
-      "DISCOVER: reading greenhouse:flyzipline, lever:dlocal, greenhouse:alxafrica, greenhouse:jumia (ranked by relevance to NG).",
+      "DISCOVER: reading greenhouse:canonical, lever:dlocal, greenhouse:flyzipline, greenhouse:alxafrica (ranked by relevance to NG).",
       "DECIDE: no roleKeywords given; filtering titles by the candidate's desired roles.",
-      "DECIDE: expand once → greenhouse:moniepoint, greenhouse:canonical. Only 1 candidate(s) for 15 requested; adding the next most relevant verified sources.",
+      "DECIDE: expand once → greenhouse:jumia, greenhouse:moniepoint. Only 5 candidate(s) for 15 requested; adding the next most relevant verified sources.",
       "DECIDE: 920 listings → 7 candidates (1 duplicates removed; excluded: ROLE_KEYWORD_MISMATCH 880, SENIORITY_MISMATCH 18, LOCATION_OUTSIDE_SELECTED_COUNTRIES 14, DUPLICATE_COMPANY_TITLE_LOCATION 1).",
       "ANALYZE: rules-only (ai.enabled is false).",
       "DELIVER: 7 opportunities written; 0 'opportunity-delivered' event(s) charged (run is not pay-per-event, so nothing was charged)."
@@ -51,7 +51,7 @@
       },
       "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/5703396",
       "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/5703396",
-      "discoveredAt": "2026-09-23T17:50:59.616Z",
+      "discoveredAt": "2026-09-23T18:26:54.068Z",
       "sourcePostedAt": "2024-04-11T15:09:05.000Z",
       "sourceUpdatedAt": "2026-08-05T22:23:33.000Z",
       "freshnessDays": 48,
@@ -189,7 +189,7 @@
       "provenance": {
         "adapter": "greenhouse-job-board-api-v1",
         "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
-        "retrievedAt": "2026-09-23T17:51:10.756Z",
+        "retrievedAt": "2026-09-23T18:26:55.204Z",
         "registryVerifiedAt": "2026-09-23"
       },
       "qualityWarnings": [],
@@ -288,7 +288,7 @@
       },
       "sourceUrl": "https://www.zipline.com/open-roles/7978313003?gh_jid=7978313003",
       "applicationUrl": "https://www.zipline.com/open-roles/7978313003?gh_jid=7978313003",
-      "discoveredAt": "2026-09-23T17:50:59.616Z",
+      "discoveredAt": "2026-09-23T18:26:54.068Z",
       "sourcePostedAt": "2026-08-26T15:44:44.000Z",
       "sourceUpdatedAt": "2026-09-17T17:05:10.000Z",
       "freshnessDays": 6,
@@ -321,7 +321,7 @@
       "requiredSkillAlternatives": [],
       "preferredSkills": [],
       "salary": null,
-      "shortDescription": "Zipline is looking for an Aviation Compliance Analyst to support aviation regulatory compliance across our Africa operations. This role will help ensure that Zipline’s flight operations, site operations, regulatory submissions, reporting practices, and internal compliance processes remain aligned with applicable aviation requirements and Zipline’s safety and operational standards. You will work closely with the Global Aviation team, Africa regulatory and operations teams,…",
+      "shortDescription": "Assist cross-functional teams in preparing regulatory approval packages, documenting conditions of approval, and maintaining post-approval compliance records. Maintain and update aviation manuals, regulatory documents, and operating materials to align with approved operations and applicable regulations. Format, organize, and version-control materials required for regulatory approvals, audits, inspections, and internal reviews through Zipline’s aviation compliance portal.",
       "geographicEligibility": {
         "status": "explicitly_supported",
         "basis": "country",
@@ -363,7 +363,7 @@
       "provenance": {
         "adapter": "greenhouse-job-board-api-v1",
         "apiUrl": "https://boards-api.greenhouse.io/v1/boards/flyzipline/jobs?content=true",
-        "retrievedAt": "2026-09-23T17:51:03.749Z",
+        "retrievedAt": "2026-09-23T18:26:57.215Z",
         "registryVerifiedAt": "2026-09-23"
       },
       "qualityWarnings": [

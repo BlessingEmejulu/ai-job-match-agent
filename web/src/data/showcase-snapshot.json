@@ -1,0 +1,2787 @@
+{
+ "label": "Snapshot of a discover-mode run (no candidate data)",
+ "runStartedAt": "2026-09-23T18:25:54.100Z",
+ "runner": "local apify run, Actor v0.1",
+ "input": {
+  "mode": "discover",
+  "roleKeywords": [
+   "engineer",
+   "analyst",
+   "intern",
+   "graduate",
+   "associate",
+   "developer"
+  ],
+  "countries": [
+   "NG",
+   "KE",
+   "GH",
+   "ZA"
+  ],
+  "employmentTypes": [],
+  "seniorityLevels": [
+   "internship",
+   "graduate",
+   "entry",
+   "junior",
+   "mid"
+  ],
+  "workArrangements": [],
+  "includeUnknownEligibility": true,
+  "includeUnknownDeadline": true,
+  "sourceIds": null,
+  "maxResults": 20,
+  "maxRequests": 60,
+  "maxRuntimeSeconds": 180,
+  "ai": {
+   "enabled": false,
+   "maxAnalyses": 10
+  },
+  "candidateProfileProvided": false
+ },
+ "outcome": "results_delivered",
+ "items": [
+  {
+   "schemaVersion": "1.0",
+   "jobId": "ae2475be559d7c845b3b",
+   "sourceJobId": "8130859",
+   "title": "Software Engineer - Secure Container Images",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/8130859",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/8130859",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2026-08-14T19:30:38.000Z",
+   "sourceUpdatedAt": "2026-08-25T14:07:21.000Z",
+   "freshnessDays": 29,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home Based - Americas; Home Based - APAC; Home based - EMEA",
+   "countries": [],
+   "regions": [
+    "EMEA",
+    "Americas",
+    "APAC"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "entry",
+   "earlyCareerFit": "suitable",
+   "experience": {
+    "minYears": 0,
+    "maxYears": 7,
+    "evidence": "0-7 years relevant experience."
+   },
+   "education": {
+    "level": "bachelor",
+    "requirement": "preferred",
+    "evidence": "A Bachelor's degree or equivalent in Computer Science, a STEM field, or a similar discipline"
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "Bash",
+    "Python",
+    "CI/CD",
+    "Linux"
+   ],
+   "requiredSkillAlternatives": [
+    [
+     "GitHub Actions",
+     "Jenkins"
+    ],
+    [
+     "Docker",
+     "Kubernetes"
+    ]
+   ],
+   "preferredSkills": [
+    "Rust"
+   ],
+   "salary": null,
+   "shortDescription": "With more than 10 billion pulls, Canonical's container images are trusted by developers worldwide to build and run software securely and at scale. That trust rests on our commitment to hardened, production-ready images. We are advancing the state of the art with a new generation of Ubuntu-based container images we call \"rocks\": minimal images engineered for performance and usability and backed by long-term security commitments. As a member of the team, you will own the path…",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "region",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_REGION_INCLUDES",
+     "message": "Remote region \"EMEA\" includes the selected countries.",
+     "evidence": "Home Based - Americas; Home Based - APAC; Home based - EMEA"
+    }
+   ],
+   "unresolvedRequirements": [
+    "The posting names the region EMEA but not the specific hiring or payroll countries."
+   ],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Software Engineer - Secure Container Images",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home Based - Americas; Home Based - APAC; Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home Based - Americas; Home Based - APAC; Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "derived from a stated minimum of 0 year(s) of experience",
+     "origin": "description"
+    },
+    {
+     "field": "experience",
+     "excerpt": "0-7 years relevant experience.",
+     "origin": "description"
+    },
+    {
+     "field": "education",
+     "excerpt": "A Bachelor's degree or equivalent in Computer Science, a STEM field, or a similar discipline",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkillAlternatives.GitHub Actions|Jenkins",
+     "excerpt": "Experience working with CI/CD systems (e.g. GitHub Actions, Jenkins)",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkillAlternatives.Docker|Kubernetes",
+     "excerpt": "Command of at least one container management or orchestration tool (e.g. Docker, Podman, or Kubernetes)",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Bash",
+     "excerpt": "Proficiency in Bash and Python",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Python",
+     "excerpt": "Proficiency in Bash and Python",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.CI/CD",
+     "excerpt": "Experience working with CI/CD systems (e.g. GitHub Actions, Jenkins)",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Linux",
+     "excerpt": "Hands-on experience with Linux systems, package management, build systems, release engineering, or artifact pipelines",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Rust",
+     "excerpt": "Familiarity with additional languages such as Go or Rust",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_MATCH:entry",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "954a9f95a6cb65c90922",
+   "sourceJobId": "8142329",
+   "title": "Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/8142329",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/8142329",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2026-08-24T09:14:46.000Z",
+   "sourceUpdatedAt": "2026-08-24T09:14:46.000Z",
+   "freshnessDays": 30,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home based - Worldwide",
+   "countries": [],
+   "regions": [
+    "Worldwide"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "graduate",
+   "earlyCareerFit": "suitable",
+   "experience": {
+    "minYears": null,
+    "maxYears": null,
+    "evidence": null
+   },
+   "education": {
+    "level": "bachelor",
+    "requirement": "required",
+    "evidence": "Undergraduate degree in Computer Science, Business Informatics, Mathematics or another STEM discipline with programming courses"
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [],
+   "requiredSkillAlternatives": [
+    [
+     "Python",
+     "Rust",
+     "C++",
+     "Go",
+     "JavaScript",
+     "Java"
+    ],
+    [
+     "Ubuntu",
+     "Linux"
+    ]
+   ],
+   "preferredSkills": [],
+   "salary": null,
+   "shortDescription": "Shaping the roadmap for your product at global sprints every six months Focusing on design and user experience, even for developer tooling and command line apps Writing high quality, resilient and performant code, potentially serving millions of demanding daily users",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "worldwide",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_WORLDWIDE",
+     "message": "Location is stated as worldwide / anywhere.",
+     "evidence": "Home based - Worldwide"
+    }
+   ],
+   "unresolvedRequirements": [
+    "Education requirement: bachelor."
+   ],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "Graduate Software Engineer, Open Source and Linux, Canonical Ubuntu",
+     "origin": "structured_field"
+    },
+    {
+     "field": "education",
+     "excerpt": "Undergraduate degree in Computer Science, Business Informatics, Mathematics or another STEM discipline with programming courses",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkillAlternatives.Python|Rust|C++|Go|JavaScript|Java",
+     "excerpt": "Confidence to get started and deliver high quality code in one of Python, Rust, C/C++, Golang, JavaScript or Java",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkillAlternatives.Ubuntu|Linux",
+     "excerpt": "Experience with Ubuntu or another Linux distribution",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_MATCH:graduate",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "1cdd3193269d93ce23a5",
+   "sourceJobId": "5370815",
+   "title": "Junior Linux Kernel Engineer - Ubuntu",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/5370815",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/5370815",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2024-02-26T03:35:49.000Z",
+   "sourceUpdatedAt": "2026-08-05T22:23:33.000Z",
+   "freshnessDays": 48,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home based - Worldwide",
+   "countries": [],
+   "regions": [
+    "Worldwide"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "junior",
+   "earlyCareerFit": "suitable",
+   "experience": {
+    "minYears": null,
+    "maxYears": null,
+    "evidence": null
+   },
+   "education": {
+    "level": null,
+    "requirement": "not_stated",
+    "evidence": null
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "Rust"
+   ],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [
+    "Git",
+    "Python",
+    "Bash",
+    "Ubuntu"
+   ],
+   "salary": null,
+   "shortDescription": "Collaborate regularly and proactively with a globally distributed team Learn from senior mentors to demystify the inner workings of the Linux kernel and how it is distributed Work closely with external silicon, cloud, or hardware manufacturer delivery teams on bleeding-edge platforms",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "worldwide",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_WORLDWIDE",
+     "message": "Location is stated as worldwide / anywhere.",
+     "evidence": "Home based - Worldwide"
+    }
+   ],
+   "unresolvedRequirements": [],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Junior Linux Kernel Engineer - Ubuntu",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Permanent",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "Junior Linux Kernel Engineer - Ubuntu",
+     "origin": "structured_field"
+    },
+    {
+     "field": "requiredSkills.Rust",
+     "excerpt": "Programming experience in C and/or Rust",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Git",
+     "excerpt": "Familiarity with version control practices, ideally with git",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Python",
+     "excerpt": "Python and Bash scripting ability",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Bash",
+     "excerpt": "Python and Bash scripting ability",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Ubuntu",
+     "excerpt": "Prior experience with Ubuntu/Debian/Snap packaging",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_MATCH:junior",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "3478c6838c34e0ead1b5",
+   "sourceJobId": "5643282",
+   "title": "Ubuntu Sales Engineer (Entry-Level)",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/5643282",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/5643282",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2024-03-25T14:10:10.000Z",
+   "sourceUpdatedAt": "2026-08-05T22:23:33.000Z",
+   "freshnessDays": 48,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home based - Worldwide",
+   "countries": [],
+   "regions": [
+    "Worldwide"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "entry",
+   "earlyCareerFit": "suitable",
+   "experience": {
+    "minYears": null,
+    "maxYears": null,
+    "evidence": null
+   },
+   "education": {
+    "level": "bachelor",
+    "requirement": "required",
+    "evidence": "Undergraduate degree in a technical subject or a compelling narrative about your alternative chosen path"
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "Linux",
+    "Machine Learning",
+    "Python"
+   ],
+   "requiredSkillAlternatives": [
+    [
+     "Kubernetes",
+     "AWS",
+     "Azure",
+     "GCP"
+    ]
+   ],
+   "preferredSkills": [
+    "Ubuntu"
+   ],
+   "salary": null,
+   "shortDescription": "Canonical is a leading provider of open source software and operating systems to the global enterprise and technology markets. Our platform, Ubuntu, is very widely used in breakthrough enterprise initiatives such as public cloud, data science, AI, engineering innovation and IoT. Our customers include the world's leading public cloud and silicon providers, and industry leaders in many sectors. The company is a pioneer of global distributed collaboration, with 1000+…",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "worldwide",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_WORLDWIDE",
+     "message": "Location is stated as worldwide / anywhere.",
+     "evidence": "Home based - Worldwide"
+    }
+   ],
+   "unresolvedRequirements": [
+    "Education requirement: bachelor."
+   ],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Ubuntu Sales Engineer (Entry-Level)",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Permanent",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "Ubuntu Sales Engineer (Entry-Level)",
+     "origin": "structured_field"
+    },
+    {
+     "field": "education",
+     "excerpt": "Undergraduate degree in a technical subject or a compelling narrative about your alternative chosen path",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkillAlternatives.Kubernetes|AWS|Azure|GCP",
+     "excerpt": "Knowledge of cloud computing concepts & leaders, such as Kubernetes, AWS, Azure, GCP",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Linux",
+     "excerpt": "Practical knowledge of Linux, virtualisation, containers and networking",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Machine Learning",
+     "excerpt": "Interest in large-scale enterprise open source - private clouds, machine learning and AI, data and analytics",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Python",
+     "excerpt": "Intermediate level Python programming skills",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Ubuntu",
+     "excerpt": "Experience with Linux (Debian or Ubuntu preferred)",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_MATCH:entry",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "4a7b5d1917161f74048f",
+   "sourceJobId": "5915299",
+   "title": "Graduate Sales Development Representative",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/5915299",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/5915299",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2024-05-24T21:08:15.000Z",
+   "sourceUpdatedAt": "2026-08-05T22:23:33.000Z",
+   "freshnessDays": 48,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home based - Worldwide",
+   "countries": [],
+   "regions": [
+    "Worldwide"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "graduate",
+   "earlyCareerFit": "suitable",
+   "experience": {
+    "minYears": null,
+    "maxYears": null,
+    "evidence": null
+   },
+   "education": {
+    "level": null,
+    "requirement": "not_stated",
+    "evidence": null
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [
+    "Agile",
+    "Blockchain",
+    "Ubuntu"
+   ],
+   "salary": null,
+   "shortDescription": "Canonical is a global software company that publishes Ubuntu and open-source enterprise solutions for cloud, developer, IoT and AI. Ubuntu is the fastest growing Linux distribution and ranks as the number #1 OS in the cloud. The role of a Sales Development Representative at Canonical Canonical is profitable and growing. We consider our sales development organization to be the best technology sales academy in the market, and as such, we select exceptional and ambitious…",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "worldwide",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_WORLDWIDE",
+     "message": "Location is stated as worldwide / anywhere.",
+     "evidence": "Home based - Worldwide"
+    }
+   ],
+   "unresolvedRequirements": [],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Graduate Sales Development Representative",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "Graduate Sales Development Representative",
+     "origin": "structured_field"
+    },
+    {
+     "field": "preferredSkills.Agile",
+     "excerpt": "In partnership with Google, Amazon, IBM and Microsoft, Canonical helps companies become more agile, productive and adopt new technologies faster. Examples of customer success include AI, Blockchain, IoT, Advanced…",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Blockchain",
+     "excerpt": "In partnership with Google, Amazon, IBM and Microsoft, Canonical helps companies become more agile, productive and adopt new technologies faster. Examples of customer success include AI, Blockchain, IoT, Advanced…",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Ubuntu",
+     "excerpt": "In partnership with Google, Amazon, IBM and Microsoft, Canonical helps companies become more agile, productive and adopt new technologies faster. Examples of customer success include AI, Blockchain, IoT, Advanced…",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:graduate",
+    "SENIORITY_MATCH:graduate",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "82a08ef4871e66cd7817",
+   "sourceJobId": "6464146",
+   "title": "Graduate Talent Scientist",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/6464146",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/6464146",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2025-04-22T09:29:41.000Z",
+   "sourceUpdatedAt": "2026-08-05T22:23:33.000Z",
+   "freshnessDays": 48,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home based - EMEA",
+   "countries": [],
+   "regions": [
+    "EMEA"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "graduate",
+   "earlyCareerFit": "suitable",
+   "experience": {
+    "minYears": null,
+    "maxYears": null,
+    "evidence": null
+   },
+   "education": {
+    "level": "bachelor",
+    "requirement": "required",
+    "evidence": "Exceptional academic track record from both high school and university, with an undergraduate degree in a psychology or people based subject."
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "Project Management"
+   ],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [
+    "SQL",
+    "Python",
+    "Statistics"
+   ],
+   "salary": null,
+   "shortDescription": "Learning how to assess candidates using behavioural interview techniques. Gaining a deep appreciation of the use of psychometrics in the workplace. Working on process and documentation efficiencies that fuel our hiring practices.",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "region",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_REGION_INCLUDES",
+     "message": "Remote region \"EMEA\" includes the selected countries.",
+     "evidence": "Home based - EMEA"
+    }
+   ],
+   "unresolvedRequirements": [
+    "The posting names the region EMEA but not the specific hiring or payroll countries.",
+    "Education requirement: bachelor."
+   ],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Graduate Talent Scientist",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "Graduate Talent Scientist",
+     "origin": "structured_field"
+    },
+    {
+     "field": "education",
+     "excerpt": "Exceptional academic track record from both high school and university, with an undergraduate degree in a psychology or people based subject.",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Project Management",
+     "excerpt": "Results driven with the ability to work at pace, with strong project management skills to roadmap, plan and deliver objectives working with the team.",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.SQL",
+     "excerpt": "Advanced analytical ability to dissect and analyse data using SQL, with Python and/or advanced statistical analysis advantageous.",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Python",
+     "excerpt": "Advanced analytical ability to dissect and analyse data using SQL, with Python and/or advanced statistical analysis advantageous.",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Statistics",
+     "excerpt": "Advanced analytical ability to dissect and analyse data using SQL, with Python and/or advanced statistical analysis advantageous.",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:graduate",
+    "SENIORITY_MATCH:graduate",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "aa6b489da560c4c451b7",
+   "sourceJobId": "6103331",
+   "title": "Graduate Customer Success Manager",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/6103331",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/6103331",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2024-07-10T16:38:07.000Z",
+   "sourceUpdatedAt": "2026-08-05T22:23:33.000Z",
+   "freshnessDays": 48,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home based - Worldwide",
+   "countries": [],
+   "regions": [
+    "Worldwide"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "graduate",
+   "earlyCareerFit": "suitable",
+   "experience": {
+    "minYears": null,
+    "maxYears": null,
+    "evidence": null
+   },
+   "education": {
+    "level": null,
+    "requirement": "not_stated",
+    "evidence": null
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "Ubuntu"
+   ],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [],
+   "salary": null,
+   "shortDescription": "Customer success is a new and strategic department at Canonical, with the objective to reduce risk and churn, facilitate the adoption of new products or services and support expansion within existing accounts. Customer Success Managers (CSM) are responsible for developing trust with their assigned customers and providing them with the best possible experience navigating Canonical's vast offering. Through a clear understanding of their customer’s objectives, the CSM can…",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "worldwide",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_WORLDWIDE",
+     "message": "Location is stated as worldwide / anywhere.",
+     "evidence": "Home based - Worldwide"
+    }
+   ],
+   "unresolvedRequirements": [],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Graduate Customer Success Manager",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "Graduate Customer Success Manager",
+     "origin": "structured_field"
+    },
+    {
+     "field": "requiredSkills.Ubuntu",
+     "excerpt": "Passion for technology, infrastructure and Ubuntu in particular is a must",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:graduate",
+    "SENIORITY_MATCH:graduate",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "c2cee7d95394235179f1",
+   "sourceJobId": "6707669",
+   "title": "Junior Ubuntu Software Engineer",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/6707669",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/6707669",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2025-11-07T16:35:52.000Z",
+   "sourceUpdatedAt": "2026-08-05T22:23:33.000Z",
+   "freshnessDays": 48,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home based - Worldwide",
+   "countries": [],
+   "regions": [
+    "Worldwide"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "junior",
+   "earlyCareerFit": "suitable",
+   "experience": {
+    "minYears": null,
+    "maxYears": null,
+    "evidence": null
+   },
+   "education": {
+    "level": "bachelor",
+    "requirement": "required",
+    "evidence": "Undergraduate degree in Computer Science or STEM, or a compelling narrative about your alternative path"
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [],
+   "requiredSkillAlternatives": [
+    [
+     "Rust",
+     "Go",
+     "Python",
+     "Flutter",
+     "C++"
+    ]
+   ],
+   "preferredSkills": [
+    "Linux",
+    "CI/CD"
+   ],
+   "salary": null,
+   "shortDescription": "Based on the first round of interviews, we identify specific teams where you might be an excellent fit and conduct second-round interviews with those teams. Our engineers are: Designing, building and shipping software in Rust, Go, Python and C/C++ Packaging, integrating, testing and uploading open source software to the Ubuntu repositories",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "worldwide",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_WORLDWIDE",
+     "message": "Location is stated as worldwide / anywhere.",
+     "evidence": "Home based - Worldwide"
+    }
+   ],
+   "unresolvedRequirements": [
+    "Education requirement: bachelor."
+   ],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Junior Ubuntu Software Engineer",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "Junior Ubuntu Software Engineer",
+     "origin": "structured_field"
+    },
+    {
+     "field": "education",
+     "excerpt": "Undergraduate degree in Computer Science or STEM, or a compelling narrative about your alternative path",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkillAlternatives.Rust|Go|Python|Flutter|C++",
+     "excerpt": "Experience with Rust, Go, Python, Flutter or C/C++",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Linux",
+     "excerpt": "Familiarity with Linux distributions",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.CI/CD",
+     "excerpt": "Familiarity with automation tooling and CI/CD systems",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_MATCH:junior",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "1d252e5de1b325832139",
+   "sourceJobId": "4003269101",
+   "title": "Quality Assurance Engineer",
+   "company": "Moniepoint",
+   "source": {
+    "id": "greenhouse:moniepoint",
+    "family": "greenhouse",
+    "boardId": "moniepoint"
+   },
+   "sourceUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4003269101",
+   "applicationUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4003269101",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2021-10-12T12:00:21.000Z",
+   "sourceUpdatedAt": "2026-09-21T15:00:22.000Z",
+   "freshnessDays": 2,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Remote, Bangalore; Remote, Nigeria",
+   "countries": [
+    "NG",
+    "IN"
+   ],
+   "regions": [],
+   "workArrangement": "remote",
+   "employmentType": "unknown",
+   "seniority": "mid",
+   "earlyCareerFit": "possible",
+   "experience": {
+    "minYears": 3,
+    "maxYears": 5,
+    "evidence": "3-5 years proven experience as a quality assurance engineer or similar role."
+   },
+   "education": {
+    "level": "bachelor",
+    "requirement": "required",
+    "evidence": "Minimum of BSc in Computer Science or a Related Field"
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "Agile",
+    "Communication"
+   ],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [],
+   "salary": null,
+   "shortDescription": "The QA engineer's responsibilities include designing and implementing tests, debugging and defining corrective actions. You will also review system requirements and track quality assurance metrics. The QA engineer role plays an important part in our company’s product development process. Our ideal candidate will be responsible for conducting tests before product launches to ensure software runs smoothly and meets client needs, while being cost-effective.",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "country",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_COUNTRY_LISTED",
+     "message": "Remote role lists Nigeria.",
+     "evidence": "Remote, Bangalore; Remote, Nigeria"
+    }
+   ],
+   "unresolvedRequirements": [
+    "Education requirement: bachelor."
+   ],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Quality Assurance Engineer",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Remote, Bangalore; Remote, Nigeria",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Remote, Bangalore; Remote, Nigeria",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "derived from a stated minimum of 3 year(s) of experience",
+     "origin": "description"
+    },
+    {
+     "field": "experience",
+     "excerpt": "3-5 years proven experience as a quality assurance engineer or similar role.",
+     "origin": "description"
+    },
+    {
+     "field": "education",
+     "excerpt": "Minimum of BSc in Computer Science or a Related Field",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Agile",
+     "excerpt": "Familiarity with Agile development methodologies.",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Communication",
+     "excerpt": "Excellent communication skills.",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/moniepoint/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:25:57.029Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [
+    "EMPLOYMENT_TYPE_UNKNOWN"
+   ],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_MATCH:mid",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "7321882980f3246448ae",
+   "sourceJobId": "7978313003",
+   "title": "Aviation Compliance Analyst- Africa",
+   "company": "Zipline",
+   "source": {
+    "id": "greenhouse:flyzipline",
+    "family": "greenhouse",
+    "boardId": "flyzipline"
+   },
+   "sourceUrl": "https://www.zipline.com/open-roles/7978313003?gh_jid=7978313003",
+   "applicationUrl": "https://www.zipline.com/open-roles/7978313003?gh_jid=7978313003",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2026-08-26T15:44:44.000Z",
+   "sourceUpdatedAt": "2026-09-17T17:05:10.000Z",
+   "freshnessDays": 6,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Abuja, Nigeria",
+   "countries": [
+    "NG"
+   ],
+   "regions": [],
+   "workArrangement": "unspecified",
+   "employmentType": "unknown",
+   "seniority": "mid",
+   "earlyCareerFit": "possible",
+   "experience": {
+    "minYears": 2,
+    "maxYears": 5,
+    "evidence": "2-5 years experience in aviation compliance, quality, safety, documentation control, or aviation/flight operations (UAS or manned aviation)."
+   },
+   "education": {
+    "level": null,
+    "requirement": "not_stated",
+    "evidence": null
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [],
+   "salary": null,
+   "shortDescription": "Assist cross-functional teams in preparing regulatory approval packages, documenting conditions of approval, and maintaining post-approval compliance records. Maintain and update aviation manuals, regulatory documents, and operating materials to align with approved operations and applicable regulations. Format, organize, and version-control materials required for regulatory approvals, audits, inspections, and internal reviews through Zipline’s aviation compliance portal.",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "country",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "LOCATION_LISTED",
+     "message": "Role is listed in Abuja, Nigeria; remote work is not stated.",
+     "evidence": "Abuja, Nigeria"
+    }
+   ],
+   "unresolvedRequirements": [],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Aviation Compliance Analyst- Africa",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Abuja, Nigeria",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "derived from a stated minimum of 2 year(s) of experience",
+     "origin": "description"
+    },
+    {
+     "field": "experience",
+     "excerpt": "2-5 years experience in aviation compliance, quality, safety, documentation control, or aviation/flight operations (UAS or manned aviation).",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/flyzipline/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.731Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [
+    "EMPLOYMENT_TYPE_UNKNOWN"
+   ],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:analyst",
+    "SENIORITY_MATCH:mid",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "3a709377e58a6535e4fd",
+   "sourceJobId": "7738799",
+   "title": "Community Associate: Lagos",
+   "company": "ALX Africa",
+   "source": {
+    "id": "greenhouse:alxafrica",
+    "family": "greenhouse",
+    "boardId": "alxafrica"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/alxafrica/jobs/7738799",
+   "applicationUrl": "https://job-boards.greenhouse.io/alxafrica/jobs/7738799",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2026-03-20T13:54:54.000Z",
+   "sourceUpdatedAt": "2026-09-04T09:45:33.000Z",
+   "freshnessDays": 19,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Lagos, Nigeria",
+   "countries": [
+    "NG"
+   ],
+   "regions": [],
+   "workArrangement": "unspecified",
+   "employmentType": "full_time",
+   "seniority": "mid",
+   "earlyCareerFit": "possible",
+   "experience": {
+    "minYears": 3,
+    "maxYears": 5,
+    "evidence": "3–5 years of experience in community management, events, customer experience, or related roles."
+   },
+   "education": {
+    "level": null,
+    "requirement": "not_stated",
+    "evidence": null
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "Communication",
+    "Google Workspace",
+    "Excel"
+   ],
+   "requiredSkillAlternatives": [
+    [
+     "Looker",
+     "Tableau"
+    ]
+   ],
+   "preferredSkills": [],
+   "salary": null,
+   "shortDescription": "Execute community programmes, events, and engagement initiatives in line with the Community Development Playbook. Support the day-to-day operations of the ALX Lagos hub, ensuring the space is active, organised, and welcoming. Coordinate logistics for community events, workshops, and meetups, including scheduling, setup, and participant management.",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "country",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "LOCATION_LISTED",
+     "message": "Role is listed in Lagos, Nigeria; remote work is not stated.",
+     "evidence": "Lagos, Nigeria"
+    }
+   ],
+   "unresolvedRequirements": [],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Community Associate: Lagos",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Lagos, Nigeria",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "derived from a stated minimum of 3 year(s) of experience",
+     "origin": "description"
+    },
+    {
+     "field": "experience",
+     "excerpt": "3–5 years of experience in community management, events, customer experience, or related roles.",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkillAlternatives.Looker|Tableau",
+     "excerpt": "Proficiency in: Google Slides / PowerPoint Google Sheets / Excel Google Docs AI Tools BI tools such as Looker Studio, Tableau, or similar platforms.",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Communication",
+     "excerpt": "Excellent interpersonal and communication skills.",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Google Workspace",
+     "excerpt": "Proficiency in: Google Slides / PowerPoint Google Sheets / Excel Google Docs AI Tools BI tools such as Looker Studio, Tableau, or similar platforms.",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Excel",
+     "excerpt": "Proficiency in: Google Slides / PowerPoint Google Sheets / Excel Google Docs AI Tools BI tools such as Looker Studio, Tableau, or similar platforms.",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/alxafrica/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:25:57.995Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:associate",
+    "SENIORITY_MATCH:mid",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "7f971bf6387ca9635fa9",
+   "sourceJobId": "8160237",
+   "title": "Organisational Development Associate",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/8160237",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/8160237",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2026-08-26T18:37:09.000Z",
+   "sourceUpdatedAt": "2026-08-26T18:40:27.000Z",
+   "freshnessDays": 27,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home Based - Americas; Home based - EMEA",
+   "countries": [],
+   "regions": [
+    "EMEA",
+    "Americas"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "mid",
+   "earlyCareerFit": "possible",
+   "experience": {
+    "minYears": 2,
+    "maxYears": null,
+    "evidence": "Up to around two years of experience since graduating."
+   },
+   "education": {
+    "level": null,
+    "requirement": "not_stated",
+    "evidence": null
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [],
+   "salary": null,
+   "shortDescription": "Being embedded inside a real team: see how it works day to day, and surface what is and isn't working. Running the diagnostics on a team's health and management effectiveness (engagement, 360, direct feedback), and turning the evidence into a clear, honest read. Owning an improvement end to end: a concrete change to how a team works that you design, drive and land, with a senior practitioner alongside you.",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "region",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_REGION_INCLUDES",
+     "message": "Remote region \"EMEA\" includes the selected countries.",
+     "evidence": "Home Based - Americas; Home based - EMEA"
+    }
+   ],
+   "unresolvedRequirements": [
+    "The posting names the region EMEA but not the specific hiring or payroll countries."
+   ],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Organisational Development Associate",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home Based - Americas; Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Permanent",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home Based - Americas; Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "derived from a stated minimum of 2 year(s) of experience",
+     "origin": "description"
+    },
+    {
+     "field": "experience",
+     "excerpt": "Up to around two years of experience since graduating.",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:associate",
+    "SENIORITY_MATCH:mid",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "3a79aa401ae7a50b658c",
+   "sourceJobId": "4703534101",
+   "title": "Credit Risk Analyst",
+   "company": "Moniepoint",
+   "source": {
+    "id": "greenhouse:moniepoint",
+    "family": "greenhouse",
+    "boardId": "moniepoint"
+   },
+   "sourceUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4703534101",
+   "applicationUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4703534101",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2025-10-31T10:15:55.000Z",
+   "sourceUpdatedAt": "2026-08-24T13:45:41.000Z",
+   "freshnessDays": 30,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Lagos, Nigeria",
+   "countries": [
+    "NG"
+   ],
+   "regions": [],
+   "workArrangement": "unspecified",
+   "employmentType": "unknown",
+   "seniority": "mid",
+   "earlyCareerFit": "possible",
+   "experience": {
+    "minYears": 3,
+    "maxYears": null,
+    "evidence": "A minimum of 3 years experience in consumer credit portfolio management"
+   },
+   "education": {
+    "level": null,
+    "requirement": "not_stated",
+    "evidence": null
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "KYC/AML",
+    "Risk Management"
+   ],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [
+    "SQL",
+    "Python",
+    "NumPy",
+    "Pandas"
+   ],
+   "salary": null,
+   "shortDescription": "We are seeking an analytical and execution-driven Credit Risk Analyst to serve as the embedded risk owner within one of Moniepoint’s consumer lending product squads. In this role you will bring together credit policy and portfolio management analytics to ensure every product and feature balances rapid growth with robust credit risk controls. You will design, monitor, and refine credit policies and decision rules for your squad; oversee portfolio performance and compliance…",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "country",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "LOCATION_LISTED",
+     "message": "Role is listed in Lagos, Nigeria; remote work is not stated.",
+     "evidence": "Lagos, Nigeria"
+    }
+   ],
+   "unresolvedRequirements": [],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Credit Risk Analyst",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Lagos, Nigeria",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "derived from a stated minimum of 3 year(s) of experience",
+     "origin": "description"
+    },
+    {
+     "field": "experience",
+     "excerpt": "A minimum of 3 years experience in consumer credit portfolio management",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.KYC/AML",
+     "excerpt": "Strong knowledge of regulatory requirements (CBN guidelines, AML/CFT, Data Protection, etc.)",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Risk Management",
+     "excerpt": "Demonstrable experience in Credit Risk management (acquisition optimisation, portfolio management etc.)",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.SQL",
+     "excerpt": "SQL Essential, Python (NumPy, Pandas etc.) desirable",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Python",
+     "excerpt": "SQL Essential, Python (NumPy, Pandas etc.) desirable",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.NumPy",
+     "excerpt": "SQL Essential, Python (NumPy, Pandas etc.) desirable",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Pandas",
+     "excerpt": "SQL Essential, Python (NumPy, Pandas etc.) desirable",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/moniepoint/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:25:57.029Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [
+    "EMPLOYMENT_TYPE_UNKNOWN"
+   ],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:analyst",
+    "SENIORITY_MATCH:mid",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "3e86792845f9df2f97f5",
+   "sourceJobId": "4439935",
+   "title": "C++/Rust Graphics and Windowing System Software Engineer - Mir",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/4439935",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/4439935",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2022-09-07T16:59:06.000Z",
+   "sourceUpdatedAt": "2026-08-05T22:23:33.000Z",
+   "freshnessDays": 48,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home Based - APAC; Home based - EMEA",
+   "countries": [],
+   "regions": [
+    "EMEA",
+    "APAC"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "mid",
+   "earlyCareerFit": "possible",
+   "experience": {
+    "minYears": 2,
+    "maxYears": null,
+    "evidence": "Excellent Bachelor’s or equivalent degree in Computer Science, STEM or similar and 2+ years of working experience"
+   },
+   "education": {
+    "level": "bachelor",
+    "requirement": "preferred",
+    "evidence": "Excellent Bachelor’s or equivalent degree in Computer Science, STEM or similar and 2+ years of working experience"
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "C++",
+    "Rust",
+    "Linux"
+   ],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [
+    "Flutter",
+    "Communication"
+   ],
+   "salary": null,
+   "shortDescription": "Design and implementation of features across the Mir stack Assisting in debugging, tracking down and fixing issues Participating in our engineering process through code and architectural review",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "region",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_REGION_INCLUDES",
+     "message": "Remote region \"EMEA\" includes the selected countries.",
+     "evidence": "Home Based - APAC; Home based - EMEA"
+    }
+   ],
+   "unresolvedRequirements": [
+    "The posting names the region EMEA but not the specific hiring or payroll countries."
+   ],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "C++/Rust Graphics and Windowing System Software Engineer - Mir",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home Based - APAC; Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home Based - APAC; Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "derived from a stated minimum of 2 year(s) of experience",
+     "origin": "description"
+    },
+    {
+     "field": "experience",
+     "excerpt": "Excellent Bachelor’s or equivalent degree in Computer Science, STEM or similar and 2+ years of working experience",
+     "origin": "description"
+    },
+    {
+     "field": "education",
+     "excerpt": "Excellent Bachelor’s or equivalent degree in Computer Science, STEM or similar and 2+ years of working experience",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.C++",
+     "excerpt": "Excellent modern C++ and excellent Rust programming skills",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Rust",
+     "excerpt": "Excellent modern C++ and excellent Rust programming skills",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Linux",
+     "excerpt": "Familiarity with Linux as a development and deployment platform",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Flutter",
+     "excerpt": "You are familiar with OpenGL, Vulkan, Flutter and other graphics, toolkits and animation frameworks",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Communication",
+     "excerpt": "You have strong written and verbal communication skills to document and present software developed",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_MATCH:mid",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "71ef075d64b8043d709c",
+   "sourceJobId": "2614095",
+   "title": "Software Engineer - Edge AI",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/2614095",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/2614095",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2021-01-29T20:36:39.000Z",
+   "sourceUpdatedAt": "2026-08-05T22:23:33.000Z",
+   "freshnessDays": 48,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home based - EMEA",
+   "countries": [],
+   "regions": [
+    "EMEA"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "mid",
+   "earlyCareerFit": "possible",
+   "experience": {
+    "minYears": 3,
+    "maxYears": null,
+    "evidence": "Proven track record of at least 3 years of professional software development using Go or C++."
+   },
+   "education": {
+    "level": "bachelor",
+    "requirement": "preferred",
+    "evidence": "You have a Bachelor’s or equivalent in Computer Science, STEM or similar degree"
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "C++",
+    "Linux",
+    "Docker",
+    "Kubernetes",
+    "Bash",
+    "CI/CD",
+    "GitHub Actions",
+    "Machine Learning",
+    "Ubuntu"
+   ],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [],
+   "salary": null,
+   "shortDescription": "This is an exciting opportunity for a software engineer passionate about open source software, Linux, edge computing, and AI. Come build a rewarding, meaningful career working with the best and brightest people in technology at Canonical, a growing international software company. Your role will be to help us provide easy-to-deploy, secure, and customizable edge AI solutions, specifically focusing on Inference Snaps. You will work on designing and implementing…",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "region",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_REGION_INCLUDES",
+     "message": "Remote region \"EMEA\" includes the selected countries.",
+     "evidence": "Home based - EMEA"
+    }
+   ],
+   "unresolvedRequirements": [
+    "The posting names the region EMEA but not the specific hiring or payroll countries."
+   ],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Software Engineer - Edge AI",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "derived from a stated minimum of 3 year(s) of experience",
+     "origin": "description"
+    },
+    {
+     "field": "experience",
+     "excerpt": "Proven track record of at least 3 years of professional software development using Go or C++.",
+     "origin": "description"
+    },
+    {
+     "field": "education",
+     "excerpt": "You have a Bachelor’s or equivalent in Computer Science, STEM or similar degree",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.C++",
+     "excerpt": "Proven track record of at least 3 years of professional software development using Go or C++.",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Linux",
+     "excerpt": "Experience working on and developing applications for Linux",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Docker",
+     "excerpt": "Containers (docker, kubernetes)",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Kubernetes",
+     "excerpt": "Containers (docker, kubernetes)",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Bash",
+     "excerpt": "Bash scripting",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.CI/CD",
+     "excerpt": "CI/CD (GitHub Actions, GitLab CI, etc)",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.GitHub Actions",
+     "excerpt": "CI/CD (GitHub Actions, GitLab CI, etc)",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Machine Learning",
+     "excerpt": "Local AI/ML inference frameworks",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Ubuntu",
+     "excerpt": "Canonical is a growing international software company that works with the open-source community to deliver Ubuntu, the world’s best free software platform. Our services help businesses worldwide reduce costs, improve…",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_MATCH:mid",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "9fa3f4433622982a1bbd",
+   "sourceJobId": "6707824",
+   "title": "Ubuntu Software Engineer",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/6707824",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/6707824",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2025-11-07T16:36:10.000Z",
+   "sourceUpdatedAt": "2026-08-05T22:23:33.000Z",
+   "freshnessDays": 48,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home based - Worldwide",
+   "countries": [],
+   "regions": [
+    "Worldwide"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "mid",
+   "earlyCareerFit": "possible",
+   "experience": {
+    "minYears": 2,
+    "maxYears": 4,
+    "evidence": "At least 2 to 4 years of professional software engineering experience post University"
+   },
+   "education": {
+    "level": "bachelor",
+    "requirement": "required",
+    "evidence": "Undergraduate degree in Computer Science or STEM, or a compelling narrative about your alternative path"
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [],
+   "requiredSkillAlternatives": [
+    [
+     "Rust",
+     "Go",
+     "Python",
+     "Flutter",
+     "C++"
+    ]
+   ],
+   "preferredSkills": [
+    "Linux"
+   ],
+   "salary": null,
+   "shortDescription": "Based on the first round of interviews, we identify specific teams where you might be an excellent fit and conduct second-round interviews with those teams. Our engineers are: Designing, building and shipping software in Rust, Go and Python Packaging, integrating, testing and uploading open source software to the Ubuntu repositories",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "worldwide",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_WORLDWIDE",
+     "message": "Location is stated as worldwide / anywhere.",
+     "evidence": "Home based - Worldwide"
+    }
+   ],
+   "unresolvedRequirements": [
+    "Education requirement: bachelor."
+   ],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Ubuntu Software Engineer",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home based - Worldwide",
+     "origin": "structured_field"
+    },
+    {
+     "field": "seniority",
+     "excerpt": "derived from a stated minimum of 2 year(s) of experience",
+     "origin": "description"
+    },
+    {
+     "field": "experience",
+     "excerpt": "At least 2 to 4 years of professional software engineering experience post University",
+     "origin": "description"
+    },
+    {
+     "field": "education",
+     "excerpt": "Undergraduate degree in Computer Science or STEM, or a compelling narrative about your alternative path",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkillAlternatives.Rust|Go|Python|Flutter|C++",
+     "excerpt": "Significant experience with Rust, Go, Python, Flutter or C/C++",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Linux",
+     "excerpt": "Experience with Linux distributions and distribution engineering",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_MATCH:mid",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "2e8fcca7ae6386f8c13d",
+   "sourceJobId": "4883663101",
+   "title": "Hardware Engineer",
+   "company": "Moniepoint",
+   "source": {
+    "id": "greenhouse:moniepoint",
+    "family": "greenhouse",
+    "boardId": "moniepoint"
+   },
+   "sourceUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4883663101",
+   "applicationUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4883663101",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2026-06-04T12:28:51.000Z",
+   "sourceUpdatedAt": "2026-09-17T08:17:03.000Z",
+   "freshnessDays": 6,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Lagos, Nigeria",
+   "countries": [
+    "NG"
+   ],
+   "regions": [],
+   "workArrangement": "unspecified",
+   "employmentType": "unknown",
+   "seniority": "unknown",
+   "earlyCareerFit": "unknown",
+   "experience": {
+    "minYears": null,
+    "maxYears": null,
+    "evidence": null
+   },
+   "education": {
+    "level": "bachelor",
+    "requirement": "preferred",
+    "evidence": "Bachelor's degree in Electrical/ Electronics, or a related field is preferred."
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "Microsoft Office",
+    "Communication"
+   ],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [],
+   "salary": null,
+   "shortDescription": "Design electronic hardware circuits and ensure it complies with specifications. Design printed circuit board (PCB) layout as specified. Create, maintain and update engineering related aspects (e.g. parts, bill of materials) of a design or product.",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "country",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "LOCATION_LISTED",
+     "message": "Role is listed in Lagos, Nigeria; remote work is not stated.",
+     "evidence": "Lagos, Nigeria"
+    }
+   ],
+   "unresolvedRequirements": [],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Hardware Engineer",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Lagos, Nigeria",
+     "origin": "structured_field"
+    },
+    {
+     "field": "education",
+     "excerpt": "Bachelor's degree in Electrical/ Electronics, or a related field is preferred.",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Microsoft Office",
+     "excerpt": "Proficiency in using Microsoft Office applications.",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Communication",
+     "excerpt": "Effective written and verbal communication skills to collaborate with cross-functional teams.",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/moniepoint/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:25:57.029Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [
+    "EMPLOYMENT_TYPE_UNKNOWN"
+   ],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_UNKNOWN_KEPT",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "23650841b576b37f8116",
+   "sourceJobId": "2969042",
+   "title": "Distributed Systems Testing Software Engineer, Python / Go",
+   "company": "Canonical",
+   "source": {
+    "id": "greenhouse:canonical",
+    "family": "greenhouse",
+    "boardId": "canonical"
+   },
+   "sourceUrl": "https://job-boards.greenhouse.io/canonical/jobs/2969042",
+   "applicationUrl": "https://job-boards.greenhouse.io/canonical/jobs/2969042",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2021-03-18T16:52:37.000Z",
+   "sourceUpdatedAt": "2026-09-07T13:23:35.000Z",
+   "freshnessDays": 16,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Home Based - Americas; Home based - EMEA",
+   "countries": [],
+   "regions": [
+    "EMEA",
+    "Americas"
+   ],
+   "workArrangement": "remote",
+   "employmentType": "full_time",
+   "seniority": "unknown",
+   "earlyCareerFit": "unknown",
+   "experience": {
+    "minYears": null,
+    "maxYears": null,
+    "evidence": null
+   },
+   "education": {
+    "level": null,
+    "requirement": "not_stated",
+    "evidence": null
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [
+    "Python",
+    "Linux"
+   ],
+   "requiredSkillAlternatives": [
+    [
+     "Jenkins",
+     "GitHub Actions"
+    ]
+   ],
+   "preferredSkills": [
+    "Machine Learning",
+    "OpenStack",
+    "Kubernetes",
+    "Terraform",
+    "AWS"
+   ],
+   "salary": null,
+   "shortDescription": "Creating automated testing approaches and infrastructure for validating reliability, performance, and resilience of cloud orchestration tools and applications Enabling engineering teams across Canonical to develop software with confidence by making distributed system testing tooling available across the company Enhancing continuous integration pipelines for deploying and testing Canonical’s cloud native products such as Kubeflow",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "region",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_REGION_INCLUDES",
+     "message": "Remote region \"EMEA\" includes the selected countries.",
+     "evidence": "Home Based - Americas; Home based - EMEA"
+    }
+   ],
+   "unresolvedRequirements": [
+    "The posting names the region EMEA but not the specific hiring or payroll countries."
+   ],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Distributed Systems Testing Software Engineer, Python / Go",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Home Based - Americas; Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Home Based - Americas; Home based - EMEA",
+     "origin": "structured_field"
+    },
+    {
+     "field": "requiredSkillAlternatives.Jenkins|GitHub Actions",
+     "excerpt": "Working knowledge of continuous integration tools such as Jenkins, CircleCI, GitHub Actions",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Python",
+     "excerpt": "Experience with Python or Go development",
+     "origin": "description"
+    },
+    {
+     "field": "requiredSkills.Linux",
+     "excerpt": "Solid understanding of the Linux system architecture",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Machine Learning",
+     "excerpt": "Experience with AI/ML pipelines",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.OpenStack",
+     "excerpt": "Experience with cloud technologies such as OpenStack, Kubernetes, Terraform and AWS",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Kubernetes",
+     "excerpt": "Experience with cloud technologies such as OpenStack, Kubernetes, Terraform and AWS",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.Terraform",
+     "excerpt": "Experience with cloud technologies such as OpenStack, Kubernetes, Terraform and AWS",
+     "origin": "description"
+    },
+    {
+     "field": "preferredSkills.AWS",
+     "excerpt": "Experience with cloud technologies such as OpenStack, Kubernetes, Terraform and AWS",
+     "origin": "description"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/canonical/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:26:01.217Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_UNKNOWN_KEPT",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "a66eba03cdf576d0c923",
+   "sourceJobId": "4874410101",
+   "title": "Engineering Relations Partner",
+   "company": "Moniepoint",
+   "source": {
+    "id": "greenhouse:moniepoint",
+    "family": "greenhouse",
+    "boardId": "moniepoint"
+   },
+   "sourceUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4874410101",
+   "applicationUrl": "https://job-boards.eu.greenhouse.io/moniepoint/jobs/4874410101",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2026-05-25T09:52:00.000Z",
+   "sourceUpdatedAt": "2026-09-01T13:21:09.000Z",
+   "freshnessDays": 22,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Remote, Lagos, Nigeria",
+   "countries": [
+    "NG"
+   ],
+   "regions": [],
+   "workArrangement": "remote",
+   "employmentType": "unknown",
+   "seniority": "unknown",
+   "earlyCareerFit": "unknown",
+   "experience": {
+    "minYears": null,
+    "maxYears": null,
+    "evidence": null
+   },
+   "education": {
+    "level": null,
+    "requirement": "not_stated",
+    "evidence": null
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [],
+   "salary": null,
+   "shortDescription": "We are looking for an Engineering Relations Partner to join the Corporate Affairs and R&D teams. You will work closely with our engineering teams to tell the story of what we’re building in a language that other expert engineers understand. This is a content execution role. You will translate what our engineers build and learn into high-quality narratives: the kind that earns genuine respect in engineering communities, gets accepted at top-tier conferences, and attracts…",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "country",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "REMOTE_COUNTRY_LISTED",
+     "message": "Remote role lists Nigeria.",
+     "evidence": "Remote, Lagos, Nigeria"
+    }
+   ],
+   "unresolvedRequirements": [],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Engineering Relations Partner",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Remote, Lagos, Nigeria",
+     "origin": "structured_field"
+    },
+    {
+     "field": "workArrangement",
+     "excerpt": "Remote, Lagos, Nigeria",
+     "origin": "structured_field"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/moniepoint/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:25:57.029Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [
+    "EMPLOYMENT_TYPE_UNKNOWN"
+   ],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:engineer",
+    "SENIORITY_UNKNOWN_KEPT",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  },
+  {
+   "schemaVersion": "1.0",
+   "jobId": "cc44d642a82357cae6fc",
+   "sourceJobId": "4937320101",
+   "title": "Midtail Associate - Jumia (Full Time)",
+   "company": "Jumia",
+   "source": {
+    "id": "greenhouse:jumia",
+    "family": "greenhouse",
+    "boardId": "jumia"
+   },
+   "sourceUrl": "https://job-boards.eu.greenhouse.io/jumia/jobs/4937320101",
+   "applicationUrl": "https://job-boards.eu.greenhouse.io/jumia/jobs/4937320101",
+   "discoveredAt": "2026-09-23T18:25:54.100Z",
+   "sourcePostedAt": "2026-08-28T13:25:59.000Z",
+   "sourceUpdatedAt": "2026-09-01T08:07:27.000Z",
+   "freshnessDays": 22,
+   "deadline": null,
+   "deadlineStatus": "unknown",
+   "locationText": "Kenya",
+   "countries": [
+    "KE"
+   ],
+   "regions": [],
+   "workArrangement": "unspecified",
+   "employmentType": "full_time",
+   "seniority": "unknown",
+   "earlyCareerFit": "unknown",
+   "experience": {
+    "minYears": null,
+    "maxYears": null,
+    "evidence": null
+   },
+   "education": {
+    "level": null,
+    "requirement": "not_stated",
+    "evidence": null
+   },
+   "studentStatusRequired": {
+    "required": false,
+    "evidence": null
+   },
+   "requiredSkills": [],
+   "requiredSkillAlternatives": [],
+   "preferredSkills": [],
+   "salary": null,
+   "shortDescription": "Build and maintain strong, long-lasting relationships with C-level executives and account managers of our top brands and distributors in the category. You will be one of the key external representatives of Jumia in this category, alongside the Country Managing Director and CCO. Develop and execute strategic plans to drive sales growth and maximize revenue across your portfolio. Lead the acquisition of new high-potential brands and large distributors to enrich our assortment…",
+   "geographicEligibility": {
+    "status": "explicitly_supported",
+    "basis": "country",
+    "assessedFor": [
+     "NG",
+     "KE",
+     "GH",
+     "ZA"
+    ],
+    "summary": "Location evidence includes the selected countries. This does not confirm legal work authorization or that the employer will hire there."
+   },
+   "eligibilityReasons": [
+    {
+     "code": "LOCATION_LISTED",
+     "message": "Role is listed in Kenya; remote work is not stated.",
+     "evidence": "Kenya"
+    }
+   ],
+   "unresolvedRequirements": [],
+   "evidence": [
+    {
+     "field": "title",
+     "excerpt": "Midtail Associate - Jumia (Full Time)",
+     "origin": "structured_field"
+    },
+    {
+     "field": "location",
+     "excerpt": "Kenya",
+     "origin": "structured_field"
+    },
+    {
+     "field": "employmentType",
+     "excerpt": "Full-time",
+     "origin": "structured_field"
+    }
+   ],
+   "provenance": {
+    "adapter": "greenhouse-job-board-api-v1",
+    "apiUrl": "https://boards-api.greenhouse.io/v1/boards/jumia/jobs?content=true",
+    "retrievedAt": "2026-09-23T18:25:55.462Z",
+    "registryVerifiedAt": "2026-09-23"
+   },
+   "qualityWarnings": [
+    "REQUIRED_PREFERRED_NOT_SEPARATED"
+   ],
+   "duplicateSourceReferences": [],
+   "analysisMode": "rules_only",
+   "decisionReasons": [
+    "ROLE_KEYWORD_MATCH:associate",
+    "SENIORITY_UNKNOWN_KEPT",
+    "DEADLINE_UNKNOWN_KEPT",
+    "LOCATION_EXPLICITLY_SUPPORTED"
+   ],
+   "match": null
+  }
+ ]
+}

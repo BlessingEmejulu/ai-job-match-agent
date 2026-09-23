@@ -22,7 +22,8 @@ export class UnknownSourceError extends Error {
 export function relevance(entry: RegistryEntry, countries: string[]): number {
     const countryHits = countries.filter((c) => entry.observedCountries.includes(c)).length;
     const regionHits = countries.filter((c) => regionsOf(c).some((r) => entry.observedRegions.includes(r))).length;
-    return countryHits * 3 + Math.min(regionHits, 2) + (entry.hasWorldwideRoles ? 1 : 0);
+    // Worldwide roles are open to applicants in every country, so measured volume counts like a country hit.
+    return countryHits * 3 + Math.min(regionHits, 2) + Math.min(4, Math.round(entry.measuredWorldwideListings / 10)) + (entry.hasWorldwideRoles ? 1 : 0);
 }
 
 /**

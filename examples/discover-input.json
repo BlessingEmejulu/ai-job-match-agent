@@ -1,14 +1,35 @@
 {
     "mode": "discover",
-    "roleKeywords": ["engineer", "analyst", "intern", "graduate"],
-    "countries": ["NG", "KE", "GH"],
+    "roleKeywords": [
+        "engineer",
+        "analyst",
+        "intern",
+        "graduate",
+        "associate",
+        "developer"
+    ],
+    "countries": [
+        "NG",
+        "KE",
+        "GH",
+        "ZA"
+    ],
     "employmentTypes": [],
-    "seniorityLevels": [],
+    "seniorityLevels": [
+        "internship",
+        "graduate",
+        "entry",
+        "junior",
+        "mid"
+    ],
     "workArrangements": [],
     "includeUnknownEligibility": true,
     "includeUnknownDeadline": true,
     "maxResults": 20,
     "maxRequests": 60,
     "maxRuntimeSeconds": 180,
-    "ai": { "enabled": false, "maxAnalyses": 10 }
+    "ai": {
+        "enabled": false,
+        "maxAnalyses": 10
+    }
 }

@@ -16,6 +16,8 @@ export interface RegistryEntry {
     observedCountries: string[];
     observedRegions: Region[];
     hasWorldwideRoles: boolean;
+    /** Listings with a worldwide/anywhere location in the 2026-09-23 measurement. */
+    measuredWorldwideListings: number;
     notes: string;
 }
 
@@ -36,6 +38,7 @@ export const REGISTRY: RegistryEntry[] = [
         observedCountries: ['NG', 'KE', 'ZA', 'ES', 'PL', 'PT', 'IN', 'GB'],
         observedRegions: ['Africa', 'Europe'],
         hasWorldwideRoles: false,
+        measuredWorldwideListings: 0,
         notes: 'Nigerian fintech. Many Nigeria state-level field roles plus remote country-specific tech roles.',
     },
     {
@@ -49,6 +52,7 @@ export const REGISTRY: RegistryEntry[] = [
         observedCountries: ['GH', 'NG', 'SN', 'KE', 'EG', 'UG', 'CI', 'PT'],
         observedRegions: ['Africa'],
         hasWorldwideRoles: false,
+        measuredWorldwideListings: 0,
         notes: 'Pan-African e-commerce. Board hosted on the Greenhouse EU instance; served by the same public API host.',
     },
     {
@@ -62,6 +66,7 @@ export const REGISTRY: RegistryEntry[] = [
         observedCountries: ['ZA', 'RW', 'NG'],
         observedRegions: ['Africa'],
         hasWorldwideRoles: false,
+        measuredWorldwideListings: 0,
         notes: 'Tech skills and careers organisation. Small board; several roles say only "Remote".',
     },
     {
@@ -75,6 +80,7 @@ export const REGISTRY: RegistryEntry[] = [
         observedCountries: ['US', 'CI', 'RW', 'NG', 'GB'],
         observedRegions: ['Africa'],
         hasWorldwideRoles: true,
+        measuredWorldwideListings: 1,
         notes: 'Drone logistics. Large board, mostly US; a minority of African field/ops roles and some "Remote in Africa".',
     },
     {
@@ -88,6 +94,7 @@ export const REGISTRY: RegistryEntry[] = [
         observedCountries: ['TW', 'GB', 'CN'],
         observedRegions: ['EMEA', 'Americas', 'APAC'],
         hasWorldwideRoles: true,
+        measuredWorldwideListings: 96,
         notes: 'Ubuntu publisher. Many "Home based - Worldwide/EMEA" roles; includes graduate roles.',
     },
     {
@@ -101,6 +108,7 @@ export const REGISTRY: RegistryEntry[] = [
         observedCountries: ['US', 'CA', 'GB', 'IN', 'PL', 'DE', 'IL', 'IE'],
         observedRegions: ['EMEA'],
         hasWorldwideRoles: false,
+        measuredWorldwideListings: 0,
         notes: 'All-remote company but most roles are country-restricted; useful for testing restriction handling.',
     },
     {
@@ -114,6 +122,7 @@ export const REGISTRY: RegistryEntry[] = [
         observedCountries: ['UY', 'BR', 'AR', 'ES', 'ZA', 'NG', 'KE', 'SN', 'EG', 'MA'],
         observedRegions: ['Africa'],
         hasWorldwideRoles: false,
+        measuredWorldwideListings: 0,
         notes: 'Emerging-markets payments. Offices in Lagos, Nairobi, Cape Town, Dakar, Cairo.',
     },
     {
@@ -127,6 +136,7 @@ export const REGISTRY: RegistryEntry[] = [
         observedCountries: ['HK', 'TW', 'AU', 'AE', 'ZA'],
         observedRegions: ['MENA', 'APAC', 'Europe'],
         hasWorldwideRoles: true,
+        measuredWorldwideListings: 7,
         notes: 'Large board with an "Accelerator Program" early-career track, some student-only.',
     },
 ];
