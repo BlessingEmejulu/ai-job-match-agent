@@ -4,7 +4,11 @@ import 'server-only';
  * Minimal server-side Apify API client (https://docs.apify.com/api/v2). The token is sent only in
  * the Authorization header, never in URLs, and this module can only be imported by server code.
  */
-const API = 'https://api.apify.com/v2';
+// Local development can point at `scripts/mock-apify.mjs`; production always uses the real API.
+const API =
+    process.env.NODE_ENV !== 'production' && process.env.APIFY_API_BASE_URL?.startsWith('http://localhost:')
+        ? process.env.APIFY_API_BASE_URL.replace(/\/$/, '')
+        : 'https://api.apify.com/v2';
 
 export type RunStatus = 'READY' | 'RUNNING' | 'SUCCEEDED' | 'FAILED' | 'TIMING-OUT' | 'TIMED-OUT' | 'ABORTING' | 'ABORTED';
 export const TERMINAL: RunStatus[] = ['SUCCEEDED', 'FAILED', 'TIMED-OUT', 'ABORTED'];

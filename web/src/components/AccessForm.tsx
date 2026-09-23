@@ -20,20 +20,31 @@ export function AccessForm() {
     }
 
     return (
-        <form onSubmit={submit} className="max-w-sm space-y-3 rounded-lg border border-slate-200 bg-white p-4">
-            <p className="text-sm text-slate-700">Live runs cost the site owner real credits, so they are limited to people with the access code.</p>
-            <div className="flex flex-col">
-                <label htmlFor="code" className="text-sm font-medium text-slate-800">
+        <form onSubmit={submit} className="mx-auto max-w-md space-y-6 rounded-3xl border border-line bg-paper p-8 shadow-soft sm:p-10">
+            <div className="space-y-2">
+                <p className="font-display text-2xl text-forest-deep">Private access</p>
+                <p className="text-sm leading-relaxed text-muted">Live searches spend real credits, so they are open to people with the access code.</p>
+            </div>
+            <div className="flex flex-col gap-1.5">
+                <label htmlFor="code" className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted">
                     Access code
                 </label>
-                <input id="code" type="password" autoComplete="off" required value={code} onChange={(e) => setCode(e.target.value)} className="mt-1 rounded-md border border-slate-300 px-2 py-1.5" />
+                <input
+                    id="code"
+                    type="password"
+                    autoComplete="off"
+                    required
+                    value={code}
+                    onChange={(e) => setCode(e.target.value)}
+                    className="h-12 rounded-xl border border-line bg-paper px-4 text-base transition hover:border-line-strong focus:border-gold"
+                />
             </div>
             {error && (
-                <p role="alert" className="text-sm text-rose-800">
+                <p role="alert" className="rounded-xl bg-rose-wash px-4 py-3 text-sm text-rose-ink">
                     {error}
                 </p>
             )}
-            <button disabled={busy} className="rounded-md bg-teal-800 px-3 py-1.5 text-sm font-medium text-white disabled:opacity-60">
+            <button disabled={busy} className="h-12 w-full rounded-full bg-forest text-sm font-medium text-paper transition hover:bg-forest-deep disabled:opacity-60">
                 {busy ? 'Checking…' : 'Continue'}
             </button>
         </form>

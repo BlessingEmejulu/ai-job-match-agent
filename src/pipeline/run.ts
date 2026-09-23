@@ -29,6 +29,8 @@ export interface PipelineDeps {
     log: Logger;
     /** Time reserved at the end of the run for delivery and summary writes. */
     reserveMs?: number;
+    /** Live progress for the run status message. Format: "Stage n/4 · text". Must not throw. */
+    progress?: (message: string) => void;
 }
 
 export type Outcome = 'results_delivered' | 'no_matches' | 'partial_source_failure' | 'total_source_failure' | 'budget_limited';
@@ -106,6 +108,13 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
     const profile = input.mode === 'match' ? input.candidateProfile! : null;
     const decisions: string[] = [];
     const warnings: string[] = [];
+    const progress = (stage: number, text: string) => {
+        try {
+            deps.progress?.(`Stage ${stage}/4 · ${text}`);
+        } catch {
+            // progress is best-effort
+        }
+    };
     const decide = (msg: string) => {
         decisions.push(msg);
         deps.log.info(msg);
@@ -229,6 +238,7 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
         }
     };
 
+    progress(1, `Reading ${plan.initial.length} verified employer boards`);
     const initialResults = await fetchSources(plan.initial, http, deps.now);
     processResults(initialResults, 'initial');
 
@@ -250,6 +260,7 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
             sourceIds: next.map((e) => e.id),
         };
         decide(`DECIDE: expand once → ${expansion.sourceIds.join(', ')}. ${expansion.reason}`);
+        progress(1, `Too few matches so far — also reading ${next.map((e) => e.employer).join(" and ")}`);
         processResults(await fetchSources(next, http, deps.now), 'expansion');
     }
     if (!expansion.triggered) decide(`DECIDE: no source expansion. ${expansion.reason}`);
@@ -260,6 +271,8 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
         .map(([k, v]) => `${k} ${v}`)
         .join(', ');
     decide(`DECIDE: ${listingsDiscovered} listings → ${candidates.length} candidates (${duplicatesRemoved} duplicates removed${topExcluded ? `; excluded: ${topExcluded}` : ''}).`);
+
+    progress(2, `Filtered ${listingsDiscovered} listings to ${candidates.length} candidates`);
 
     // ---------------- ANALYZE (bounded AI on the most uncertain shortlisted records) ----------------
     const prelim = (c: Candidate) => [
@@ -310,6 +323,7 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
     });
 
     // ---------------- MATCH + EXPLAIN ----------------
+    progress(3, profile ? `Scoring and explaining ${finalists.length} shortlisted opportunities` : `Analysing ${finalists.length} shortlisted opportunities`);
     const now = deps.now();
     const records: Opportunity[] = [];
     let invalidRecords = 0;
@@ -361,9 +375,10 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
     const toDeliver = records.slice(0, input.maxResults);
 
     // ---------------- DELIVER (PPE) ----------------
-    for (const rec of toDeliver) {
+    for (const [i, rec] of toDeliver.entries()) {
         if (deps.delivery.isStopped) break;
         await deps.delivery.deliver(rec.jobId, rec as unknown as Record<string, unknown>);
+        if (i === 0 || (i + 1) % 5 === 0 || i === toDeliver.length - 1) progress(4, `Delivered ${deps.delivery.report.delivered} of ${toDeliver.length} opportunities`);
     }
     const report = deps.delivery.report;
     decide(`DELIVER: ${report.delivered} opportunit${report.delivered === 1 ? 'y' : 'ies'} written; ${report.billedEvents} '${DELIVERY_EVENT}' event(s) charged${report.payPerEvent ? '' : ' (run is not pay-per-event, so nothing was charged)'}.`);

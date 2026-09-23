@@ -10,14 +10,17 @@ export default async function LivePage() {
     const session = enabled.ok ? await currentSession() : null;
 
     return (
-        <div className="space-y-4">
-            <h1 className="text-2xl font-semibold">Live run</h1>
-            <p className="max-w-3xl text-sm text-slate-700">
-                Starts a real, small run of the AI Job Match Agent on Apify (up to a few minutes). Results come straight from the employers&apos; boards at run time.
-            </p>
+        <div className="space-y-12">
+            <header className="max-w-2xl space-y-4">
+                <p className="text-xs font-medium uppercase tracking-[0.28em] text-gold">Live search</p>
+                <h1 className="font-display text-4xl leading-tight tracking-tight text-forest-deep sm:text-5xl">Search the boards, right now.</h1>
+                <p className="text-lg leading-relaxed text-ink-soft">
+                    Runs a small, real search on Apify — usually well under a minute. Results come straight from employers&apos; boards at the moment you search, and you can watch each stage as it happens.
+                </p>
+            </header>
             {!enabled.ok ? (
-                <p role="status" className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-                    Live runs are not configured on this deployment. The site owner needs to set: {enabled.missing.join(', ')}.
+                <p role="status" className="rounded-3xl border border-amber-wash bg-amber-wash/60 p-8 text-sm leading-relaxed text-amber-ink">
+                    Live searches are not configured on this deployment yet. The site owner needs to set: {enabled.missing.join(', ')}.
                 </p>
             ) : session ? (
                 <LiveRunner />

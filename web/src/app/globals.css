@@ -1,16 +1,62 @@
 @import "tailwindcss";
 
 @theme {
-    --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-display: var(--font-fraunces), ui-serif, Georgia, "Times New Roman", serif;
+
+    /* Warm, quiet palette: ivory paper, deep ink, forest and muted-gold accents. */
+    --color-ivory: #f6f2ea;
+    --color-paper: #fffdf8;
+    --color-ink: #1a1813;
+    --color-ink-soft: #3d3a33;
+    --color-muted: #6f685c;
+    --color-line: #e5ddcf;
+    --color-line-strong: #d4c8b4;
+    --color-forest: #1f3b32;
+    --color-forest-deep: #132820;
+    --color-gold: #9c7a43;
+    --color-gold-soft: #f1e8d7;
+    --color-sage: #e6eee8;
+    --color-sage-ink: #24503f;
+    --color-amber-wash: #f7ecd6;
+    --color-amber-ink: #7a5316;
+    --color-rose-wash: #f6e4e0;
+    --color-rose-ink: #8a2f24;
+
+    --shadow-soft: 0 1px 2px rgb(26 24 19 / 0.04), 0 8px 24px -12px rgb(26 24 19 / 0.12);
+    --shadow-lift: 0 2px 4px rgb(26 24 19 / 0.05), 0 18px 40px -18px rgb(26 24 19 / 0.22);
+}
+
+html {
+    background: var(--color-ivory);
+}
+
+body {
+    font-feature-settings: "ss01", "cv11";
+}
+
+::selection {
+    background: var(--color-gold-soft);
+    color: var(--color-ink);
 }
 
 :focus-visible {
-    outline: 2px solid var(--color-teal-700);
-    outline-offset: 2px;
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+details > summary {
+    list-style: none;
+}
+details > summary::-webkit-details-marker {
+    display: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    * {
+    *,
+    *::before,
+    *::after {
         animation: none !important;
         transition: none !important;
     }

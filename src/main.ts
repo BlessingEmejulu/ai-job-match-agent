@@ -58,7 +58,7 @@ if (input.ai.enabled) {
 }
 
 log.info(`Mode: ${input.mode}. Countries: ${input.countries.join(', ')}. Limits: ${input.maxResults} results, ${input.maxRequests} requests, ${input.maxRuntimeSeconds}s.`);
-await Actor.setStatusMessage('Discovering opportunities from verified employer boards…');
+await Actor.setStatusMessage('Stage 1/4 · Starting: choosing the most relevant verified employer boards');
 
 let summary: RunSummary;
 try {
@@ -67,6 +67,8 @@ try {
         aiProvider,
         aiDisabledReason,
         delivery,
+        // Fire-and-forget: status messages give live progress to Console and the website.
+        progress: (message) => void Actor.setStatusMessage(message).catch(() => undefined),
         log: { info: (m, d) => log.info(m, d), warning: (m, d) => log.warning(m, d) },
     });
 } catch (err) {

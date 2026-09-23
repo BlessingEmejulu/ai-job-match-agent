@@ -225,7 +225,9 @@ export function toOpportunity(
     if (req.education.requirement === 'required' && req.education.level) unresolved.push(`Education requirement: ${req.education.level}.`);
 
     // Prefer what the role involves over company boilerplate, which usually opens a posting.
-    const describe = (section: string) => job.lines.filter((l) => l.section === section && l.text.length > 30).map((l) => l.text);
+    // Bullet lines rarely end with punctuation; add a full stop so joined lines read as sentences.
+    const describe = (section: string) =>
+        job.lines.filter((l) => l.section === section && l.text.length > 30).map((l) => (/[.!?:;]$/.test(l.text) ? l.text : `${l.text}.`));
     const shortDescription = truncate(
         (describe('responsibilities').length ? describe('responsibilities') : describe('other')).slice(0, 3).join(' ') || cleanLine(job.plainText),
         480,
