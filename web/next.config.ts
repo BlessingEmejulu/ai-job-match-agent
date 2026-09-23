@@ -1,3 +1,5 @@
+import { fileURLToPath } from 'node:url';
+
 import type { NextConfig } from 'next';
 
 const securityHeaders = [
@@ -10,6 +12,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
     poweredByHeader: false,
+    // The repository root has the Actor's own lockfile; the website is its own project.
+    turbopack: { root: fileURLToPath(new URL('.', import.meta.url)) },
     async headers() {
         return [{ source: '/:path*', headers: securityHeaders }];
     },
