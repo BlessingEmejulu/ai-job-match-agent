@@ -44,7 +44,7 @@ buried in long posts. You waste applications on jobs you can't take."
 The run stops at your max cost. Here's the billed count for this run." (Show the run's cost/usage panel.)
 
 **2:35 — Website (20 s)** *(if deployed)* "Same data for students on a phone: filters, evidence, unknowns.
-Live runs are behind an access code because they spend real credits."
+Anyone can run a live search; spending is capped per network, per visitor, per day and per search."
 
 **2:55 — Close (5 s)** "Find opportunities you can actually apply for — and know why."
 

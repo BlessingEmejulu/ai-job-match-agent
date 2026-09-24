@@ -1,28 +1,20 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import type { OpportunityView } from '@/lib/opportunity';
 import type { SummaryView } from '@/lib/summary';
 
 import { OpportunityExplorer } from './OpportunityExplorer';
+import { type OverlayState, SearchOverlay } from './SearchOverlay';
 
-type Phase = 'idle' | 'starting' | 'polling' | 'done' | 'error';
+type Phase = 'idle' | 'searching' | 'done' | 'error';
 interface StatusResponse {
     status: string;
     statusMessage: string | null;
     terminal: boolean;
-    startedAt: string | null;
     summary: SummaryView | null;
 }
-
-const STAGES = ['Reading verified employer boards', 'Filtering for your roles and countries', 'Analysing requirements and eligibility', 'Delivering results'];
-const TERMINAL_TEXT: Record<string, string> = {
-    SUCCEEDED: 'Search complete',
-    FAILED: 'The search failed',
-    'TIMED-OUT': 'The search timed out',
-    ABORTED: 'The search was stopped',
-};
 
 /** The Actor reports progress as "Stage n/4 · detail". */
 function parseStage(msg: string | null): { stage: number; detail: string } | null {
@@ -59,34 +51,62 @@ function Choice({ name, value }: { name: string; value: string }) {
 
 export function LiveRunner() {
     const [phase, setPhase] = useState<Phase>('idle');
+    const [overlayOpen, setOverlayOpen] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [status, setStatus] = useState<StatusResponse | null>(null);
+    const [summary, setSummary] = useState<SummaryView | null>(null);
+    const [stage, setStage] = useState<{ stage: number; detail: string | null }>({ stage: 0, detail: null });
     const [items, setItems] = useState<OpportunityView[]>([]);
     const [more, setMore] = useState<{ ref: string; offset: number } | null>(null);
     const [startedAt, setStartedAt] = useState<number | null>(null);
     const [now, setNow] = useState(() => Date.now());
     const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
     const alive = useRef(true);
-    const lastStage = useRef(0);
+    const resultsRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
         alive.current = true;
         return () => {
             alive.current = false;
             if (timer.current) clearTimeout(timer.current);
+            if (closeTimer.current) clearTimeout(closeTimer.current);
         };
     }, []);
 
-    // Elapsed-time clock while a search is in flight.
     useEffect(() => {
-        if (phase !== 'polling' && phase !== 'starting') return;
+        if (phase !== 'searching') return;
         const t = setInterval(() => setNow(Date.now()), 1000);
         return () => clearInterval(t);
     }, [phase]);
 
+    const [revealPending, setRevealPending] = useState(false);
+    const revealResults = useCallback(() => {
+        setOverlayOpen(false);
+        setRevealPending(true);
+    }, []);
+
+    // Scroll only after the overlay has unmounted and restored page scrolling.
+    useEffect(() => {
+        if (!revealPending || overlayOpen) return;
+        setRevealPending(false);
+        const el = resultsRef.current;
+        if (!el) return;
+        const startY = window.scrollY;
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Fallback when smooth scrolling doesn't run (e.g. a background tab): jump instead.
+        setTimeout(() => {
+            if (alive.current && window.scrollY === startY && el.getBoundingClientRect().top > 120) el.scrollIntoView({ block: 'start' });
+        }, 900);
+    }, [revealPending, overlayOpen]);
+
+    const hideOverlay = useCallback(() => setOverlayOpen(false), []);
+
     async function loadItems(ref: string, offset: number) {
         const res = await fetch(`/api/runs/${encodeURIComponent(ref)}/items?offset=${offset}`);
-        if (!res.ok) return setError('Could not load results.');
+        if (!res.ok) {
+            setError('Could not load results.');
+            return;
+        }
         const body = (await res.json()) as { items: OpportunityView[]; hasMore: boolean };
         setItems((prev) => [...prev, ...body.items]);
         setMore(body.hasMore ? { ref, offset: offset + body.items.length } : null);
@@ -98,29 +118,42 @@ export function LiveRunner() {
         if (!res.ok) {
             setPhase('error');
             setError(((await res.json().catch(() => ({}))) as { error?: string }).error ?? 'Could not read the search status.');
+            setOverlayOpen(true);
             return;
         }
         const body = (await res.json()) as StatusResponse;
         const parsed = parseStage(body.statusMessage);
-        if (parsed) lastStage.current = Math.max(lastStage.current, parsed.stage);
-        setStatus(body);
+        if (parsed) setStage((s) => (parsed.stage >= s.stage ? parsed : s));
+        else if (body.status === 'RUNNING') setStage((s) => (s.stage === 0 ? { stage: 1, detail: null } : s));
+
         if (body.terminal) {
-            setPhase('done');
+            setSummary(body.summary);
             if ((body.summary?.delivered ?? 0) > 0) await loadItems(ref, 0);
+            if (body.status !== 'SUCCEEDED' && !(body.summary?.delivered ?? 0)) {
+                setPhase('error');
+                setError(body.summary?.outcome === 'total_source_failure' ? 'All job boards failed to respond. Please try again shortly.' : 'The search did not complete. Please try again.');
+                return;
+            }
+            setPhase('done');
+            // Let the "found" moment land, then reveal the results.
+            closeTimer.current = setTimeout(revealResults, 1600);
             return; // stop polling at a terminal state
         }
-        timer.current = setTimeout(() => poll(ref, attempt + 1), Math.min(4000, 1500 + attempt * 150));
+        timer.current = setTimeout(() => poll(ref, attempt + 1), Math.min(3500, 1200 + attempt * 150));
     }
 
     async function start(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const fd = new FormData(e.currentTarget);
-        setPhase('starting');
+        if (timer.current) clearTimeout(timer.current);
+        if (closeTimer.current) clearTimeout(closeTimer.current);
+        setPhase('searching');
+        setOverlayOpen(true);
         setError(null);
         setItems([]);
         setMore(null);
-        setStatus(null);
-        lastStage.current = 0;
+        setSummary(null);
+        setStage({ stage: 0, detail: null });
         setStartedAt(Date.now());
         setNow(Date.now());
         const payload = {
@@ -141,18 +174,20 @@ export function LiveRunner() {
             setError(body.error ?? 'Could not start the search.');
             return;
         }
-        setPhase('polling');
         poll(body.ref, 0);
     }
 
-    const busy = phase === 'starting' || phase === 'polling';
-    const s = status?.summary;
-    const parsed = parseStage(status?.statusMessage ?? null);
-    const current = status?.terminal ? (status.status === 'SUCCEEDED' ? 5 : lastStage.current) : Math.max(lastStage.current, status?.status === 'RUNNING' ? 1 : 0);
-    const elapsed = startedAt ? Math.max(0, Math.round(((status?.terminal ? Date.parse(s?.finishedAt ?? '') || now : now) - startedAt) / 1000)) : 0;
+    const elapsed = startedAt ? Math.max(0, Math.round((now - startedAt) / 1000)) : 0;
+    const overlayState: OverlayState =
+        phase === 'error'
+            ? { kind: 'error', message: error ?? 'Something went wrong.' }
+            : phase === 'done'
+              ? { kind: 'done', found: summary?.delivered ?? items.length, listings: summary?.listingsDiscovered ?? 0 }
+              : { kind: 'searching', stage: stage.stage, detail: stage.detail, elapsed };
+    const busy = phase === 'searching';
 
     return (
-        <div className="space-y-12">
+        <div className="space-y-14">
             <form onSubmit={start} aria-describedby="privacy-note" className="overflow-hidden rounded-3xl border border-line bg-paper shadow-soft">
                 <div className="grid gap-px bg-line lg:grid-cols-2">
                     <fieldset className="space-y-6 bg-paper p-6 sm:p-10">
@@ -218,93 +253,78 @@ export function LiveRunner() {
 
                 <div className="flex flex-col gap-6 border-t border-line bg-ivory/50 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-10">
                     <p id="privacy-note" className="max-w-xl text-xs leading-relaxed text-muted">
-                        Please don&apos;t enter your name, contact details or CV. Skills, experience and country are used for this search only and kept in the site owner&apos;s Apify run storage under its retention settings. Matching needs skills, years and your country; otherwise the search discovers jobs only.
+                        Please don&apos;t enter your name, contact details or CV. Skills, experience and country are used for this search only. Matching needs skills, years and your country; otherwise the search discovers jobs only.
                     </p>
-                    <button disabled={busy} className="h-12 shrink-0 rounded-full bg-forest px-8 text-sm font-medium text-paper shadow-soft transition hover:bg-forest-deep hover:shadow-lift disabled:opacity-60">
-                        {busy ? 'Searching…' : 'Start live search'}
+                    <button disabled={busy} className="group relative h-12 shrink-0 overflow-hidden rounded-full bg-forest px-8 text-sm font-medium text-paper shadow-soft transition hover:bg-forest-deep hover:shadow-lift disabled:opacity-70">
+                        <span className="relative z-10">{busy ? 'Searching…' : 'Search live jobs'}</span>
+                        {busy && <span className="animate-shimmer absolute inset-y-0 left-0 w-1/3 bg-paper/20" aria-hidden="true" />}
                     </button>
                 </div>
             </form>
 
-            {(phase !== 'idle' || status) && (
-                <section aria-live="polite" aria-label="Search progress" className="rounded-3xl border border-line bg-paper p-6 shadow-soft sm:p-10">
-                    <div className="flex flex-wrap items-baseline justify-between gap-4">
-                        <div>
-                            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-gold">Live search</p>
-                            <p className="mt-2 font-display text-2xl text-forest-deep">
-                                {phase === 'starting' ? 'Starting on Apify…' : status?.terminal ? (TERMINAL_TEXT[status.status] ?? status.status) : status?.status === 'READY' ? 'Queued…' : phase === 'error' ? 'Something went wrong' : 'In progress'}
-                            </p>
-                        </div>
-                        {startedAt && (
-                            <p className="font-display text-3xl tabular-nums text-ink" aria-label={`${elapsed} seconds elapsed`}>
-                                {Math.floor(elapsed / 60)}:{String(elapsed % 60).padStart(2, '0')}
-                            </p>
-                        )}
-                    </div>
+            {overlayOpen && phase !== 'idle' && <SearchOverlay state={overlayState} onHide={phase === 'done' ? revealResults : hideOverlay} />}
 
-                    <ol className="mt-8 grid gap-3 sm:grid-cols-4">
-                        {STAGES.map((label, i) => {
-                            const n = i + 1;
-                            const done = current > n;
-                            const now_ = current === n && !status?.terminal;
-                            return (
-                                <li
-                                    key={label}
-                                    className={`rounded-2xl border p-4 transition ${done ? 'border-sage bg-sage/60' : now_ ? 'border-gold bg-gold-soft/60' : 'border-line bg-ivory/40'}`}
-                                    aria-current={now_ ? 'step' : undefined}
-                                >
-                                    <p className="flex items-center gap-2 text-xs text-muted">
-                                        <span className={`inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] ${done ? 'bg-sage-ink text-paper' : now_ ? 'bg-gold text-paper' : 'border border-line-strong'}`}>
-                                            {done ? '✓' : n}
-                                        </span>
-                                        {done ? 'Done' : now_ ? 'Now' : 'Waiting'}
-                                        {now_ && <span className="ml-auto h-1.5 w-1.5 animate-pulse rounded-full bg-gold" aria-hidden="true" />}
-                                    </p>
-                                    <p className="mt-2 text-sm font-medium text-ink">{label}</p>
-                                    {now_ && <p className="mt-1 text-xs text-muted">{parsed?.detail ?? 'Starting the search engine…'}</p>}
-                                </li>
-                            );
-                        })}
-                    </ol>
-
-                    {s && (
-                        <div className="mt-8 space-y-3 border-t border-line pt-6 text-sm text-ink-soft">
-                            <p>
-                                <span className="font-display text-lg text-ink">{s.delivered}</span> opportunities from <span className="font-display text-lg text-ink">{s.listingsDiscovered}</span> listings read across {s.sources.length} boards.
-                            </p>
-                            <ul className="flex flex-wrap gap-2">
-                                {s.sources.map((x) => (
-                                    <li key={x.id} className={`rounded-full px-3 py-1 text-xs ${x.status === 'failed' ? 'bg-rose-wash text-rose-ink' : x.status === 'partial' ? 'bg-amber-wash text-amber-ink' : 'bg-sage text-sage-ink'}`}>
-                                        {x.id.split(':')[1]} · {x.status === 'ok' ? `${x.listings} listings` : x.status}
-                                    </li>
-                                ))}
-                            </ul>
-                            {s.outcome === 'partial_source_failure' && <p className="text-amber-ink">Some sources failed; these results come from the others.</p>}
-                            {s.outcome === 'total_source_failure' && <p className="text-rose-ink">All sources failed, so no results could be collected.</p>}
-                            {s.outcome === 'no_matches' && <p>The search worked, but nothing matched these filters. Try more countries or fewer filters.</p>}
-                            {s.warnings.map((w) => (
-                                <p key={w} className="text-amber-ink">
-                                    {w}
-                                </p>
-                            ))}
-                        </div>
-                    )}
-
-                    {error && (
-                        <p role="alert" className="mt-6 rounded-2xl bg-rose-wash px-5 py-4 text-sm text-rose-ink">
-                            {error}
-                        </p>
-                    )}
-                </section>
+            {busy && !overlayOpen && (
+                <button
+                    type="button"
+                    onClick={() => setOverlayOpen(true)}
+                    className="animate-rise fixed bottom-6 left-1/2 z-40 flex -translate-x-1/2 items-center gap-3 rounded-full bg-forest px-5 py-3 text-sm text-paper shadow-lift"
+                >
+                    <span className="relative flex h-2.5 w-2.5">
+                        <span className="animate-ring absolute inset-0 rounded-full bg-gold" />
+                        <span className="relative h-2.5 w-2.5 rounded-full bg-gold" />
+                    </span>
+                    Searching… {Math.floor(elapsed / 60)}:{String(elapsed % 60).padStart(2, '0')} · show progress
+                </button>
             )}
 
-            {items.length > 0 && <OpportunityExplorer items={items} />}
-            {more && (
-                <div className="text-center">
-                    <button onClick={() => loadItems(more.ref, more.offset)} className="rounded-full border border-line-strong px-6 py-3 text-sm font-medium text-ink transition hover:border-ink hover:bg-paper">
-                        Load more results
-                    </button>
-                </div>
+            {phase === 'error' && !overlayOpen && error && (
+                <p role="alert" className="animate-rise rounded-2xl bg-rose-wash px-5 py-4 text-sm text-rose-ink">
+                    {error}
+                </p>
+            )}
+
+            {phase === 'done' && summary && (
+                <section ref={resultsRef} aria-labelledby="results-heading" className="scroll-mt-24 space-y-8">
+                    <div className="animate-rise flex flex-col gap-6 rounded-3xl border border-line bg-paper p-6 shadow-soft sm:flex-row sm:items-end sm:justify-between sm:p-10">
+                        <div className="space-y-3">
+                            <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-gold">Live results · just now</p>
+                            <h2 id="results-heading" className="font-display text-3xl tracking-tight text-forest-deep sm:text-4xl">
+                                {summary.delivered} {summary.delivered === 1 ? 'opportunity' : 'opportunities'} found
+                            </h2>
+                            <p className="text-sm text-muted">
+                                Read {summary.listingsDiscovered.toLocaleString()} live listings across {summary.sources.length} verified boards in {elapsed}s.
+                            </p>
+                        </div>
+                        <ul className="flex flex-wrap gap-2 sm:max-w-sm sm:justify-end">
+                            {summary.sources.map((x, i) => (
+                                <li
+                                    key={x.id}
+                                    style={{ animationDelay: `${150 + i * 80}ms` }}
+                                    className={`animate-rise rounded-full px-3 py-1 text-xs ${x.status === 'failed' ? 'bg-rose-wash text-rose-ink' : x.status === 'partial' ? 'bg-amber-wash text-amber-ink' : 'bg-sage text-sage-ink'}`}
+                                >
+                                    {x.id.split(':')[1]} · {x.status === 'ok' ? `${x.listings} listings` : x.status}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    {summary.outcome === 'partial_source_failure' && <p className="text-sm text-amber-ink">Some boards didn&apos;t respond; these results come from the others.</p>}
+                    {summary.delivered === 0 ? (
+                        <div className="animate-rise rounded-3xl border border-dashed border-line-strong bg-paper/60 px-6 py-16 text-center">
+                            <p className="font-display text-xl text-ink">No matching opportunities right now</p>
+                            <p className="mt-2 text-sm text-muted">Try more countries, fewer seniority filters, or broader role keywords.</p>
+                        </div>
+                    ) : (
+                        <OpportunityExplorer items={items} />
+                    )}
+                    {more && (
+                        <div className="text-center">
+                            <button onClick={() => loadItems(more.ref, more.offset)} className="rounded-full border border-line-strong px-6 py-3 text-sm font-medium text-ink transition hover:border-ink hover:bg-paper">
+                                Load more results
+                            </button>
+                        </div>
+                    )}
+                </section>
             )}
         </div>
     );

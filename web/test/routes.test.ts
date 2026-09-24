@@ -51,37 +51,43 @@ beforeEach(() => {
     Object.assign(process.env, {
         APIFY_TOKEN: TOKEN,
         APIFY_ACTOR_ID: 'someone~ai-job-match-agent',
-        LIVE_ACCESS_CODE: 'demo-code',
         SESSION_SECRET: SECRET,
         LIVE_MAX_RESULTS: '10',
         LIVE_MAX_TOTAL_CHARGE_USD: '0.25',
     });
 });
 
-describe('POST /api/session', () => {
-    it('rejects a wrong code and accepts the right one', async () => {
-        const { POST } = await import('@/app/api/session/route');
-        const bad = await POST(req('/api/session', { method: 'POST', origin: 'https://demo.example', body: JSON.stringify({ code: 'nope' }) }));
-        expect(bad.status).toBe(401);
-        expect(cookieJar.size).toBe(0);
-        const ok = await POST(req('/api/session', { method: 'POST', origin: 'https://demo.example', body: JSON.stringify({ code: 'demo-code' }) }));
-        expect(ok.status).toBe(200);
-        expect(cookieJar.get('ajma_session')).toBeTruthy();
-    });
-
-    it('refuses cross-origin sign-in', async () => {
-        const { POST } = await import('@/app/api/session/route');
-        const res = await POST(req('/api/session', { method: 'POST', origin: 'https://evil.example', body: JSON.stringify({ code: 'demo-code' }) }));
-        expect(res.status).toBe(403);
-    });
-});
-
 describe('POST /api/runs', () => {
-    it('requires a session', async () => {
+    it('lets a first-time visitor search and binds the run to a new secure session', async () => {
+        startRun.mockResolvedValue({ id: 'RunId1234567', status: 'READY', defaultDatasetId: 'DsId12345678', defaultKeyValueStoreId: 'KvId12345678' });
         const { POST } = await import('@/app/api/runs/route');
+        expect(cookieJar.size).toBe(0);
         const res = await POST(req('/api/runs', { method: 'POST', origin: 'https://demo.example', body: JSON.stringify({ countries: 'NG' }) }));
-        expect(res.status).toBe(401);
-        expect(startRun).not.toHaveBeenCalled();
+        expect(res.status).toBe(200);
+        expect(cookieJar.get('ajma_session')).toBeTruthy();
+        // The returned reference only works for the session that was just created.
+        const { ref } = await res.json();
+        const status = await import('@/app/api/runs/[ref]/route');
+        getRun.mockResolvedValue({ id: 'RunId1234567', status: 'RUNNING', statusMessage: null, defaultDatasetId: 'DsId12345678', defaultKeyValueStoreId: 'KvId12345678' });
+        expect((await status.GET(req('/api/runs/x'), ctx(ref))).status).toBe(200);
+        cookieJar.set('ajma_session', sign(newSession(3600), SECRET));
+        expect((await status.GET(req('/api/runs/x'), ctx(ref))).status).toBe(404);
+    });
+
+    it('limits searches per network even when the visitor clears cookies', async () => {
+        process.env.LIVE_MAX_RUNS_PER_IP_HOUR = '2';
+        startRun.mockResolvedValue({ id: 'RunId1234567', status: 'READY', defaultDatasetId: 'DsId12345678', defaultKeyValueStoreId: 'KvId12345678' });
+        const { POST } = await import('@/app/api/runs/route');
+        const fromIp = () => POST(req('/api/runs', { method: 'POST', origin: 'https://demo.example', headers: { 'x-forwarded-for': '203.0.113.7' }, body: JSON.stringify({ countries: 'NG' }) }));
+        for (let i = 0; i < 2; i++) {
+            cookieJar.clear();
+            expect((await fromIp()).status).toBe(200);
+        }
+        cookieJar.clear();
+        const third = await fromIp();
+        expect(third.status).toBe(429);
+        expect((await third.json()).error).toMatch(/network/);
+        delete process.env.LIVE_MAX_RUNS_PER_IP_HOUR;
     });
 
     it('refuses cross-origin requests even with a session', async () => {

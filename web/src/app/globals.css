@@ -53,6 +53,96 @@ details > summary::-webkit-details-marker {
     display: none;
 }
 
+/* ---- Motion ---- */
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.985);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes sweep {
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes ring {
+    0% {
+        transform: scale(0.55);
+        opacity: 0.55;
+    }
+    100% {
+        transform: scale(1.25);
+        opacity: 0;
+    }
+}
+@keyframes blip {
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(250%);
+    }
+}
+@keyframes float-text {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.animate-rise {
+    animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.animate-fade-in {
+    animation: fade-in 0.35s ease-out both;
+}
+.animate-sweep {
+    animation: sweep 2.6s linear infinite;
+    transform-origin: 50% 50%;
+}
+.animate-ring {
+    animation: ring 2.4s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+    transform-origin: 50% 50%;
+}
+.animate-blip {
+    animation: blip 1.8s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+.animate-shimmer {
+    animation: shimmer 1.6s ease-in-out infinite;
+}
+.animate-float-text {
+    animation: float-text 0.45s ease-out both;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

@@ -5,7 +5,7 @@ A small Next.js (App Router, TypeScript, Tailwind CSS) front end for the Apify A
 - `/` — public, read-only **showcase** of a dated discover-mode run (no candidate data). Search, filters
   (country, work arrangement, seniority, employment type, eligibility, deadline), recommended/recent order,
   evidence and unknowns per job, and links to the employer's application page.
-- `/live` — **protected** live runs: access code → signed session → start a capped Actor run → poll status
+- `/live` — **open** live search: a signed session is created on the first search → start a capped Actor run → animated progress overlay → poll status
   until a terminal state → paginated, sanitized results with match explanations.
 
 ```bash
@@ -25,7 +25,7 @@ compiled Actor against the real job boards (development only; production always 
 (cd .. && npm run build)            # build the Actor
 node scripts/mock-apify.mjs         # http://localhost:8787/v2
 # in web/.env.local: APIFY_API_BASE_URL=http://localhost:8787/v2 plus any APIFY_TOKEN/APIFY_ACTOR_ID values,
-# LIVE_ACCESS_CODE and a 32+ char SESSION_SECRET
+# and a 32+ char SESSION_SECRET
 npm run dev
 ```
 

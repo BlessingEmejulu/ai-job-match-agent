@@ -62,10 +62,10 @@ Root Directory `web`**. Framework preset: Next.js. Node 22+.
 | `APIFY_TOKEN` | live runs, Apify showcase | Owner's API token. Prefer a token scoped to running this Actor and reading its storages. |
 | `APIFY_ACTOR_ID` | live runs | `<apify-username>~ai-job-match-agent` |
 | `APIFY_SHOWCASE_DATASET_ID` | public showcase | Dataset of a **discover-mode** run. If unset, the dated snapshot bundled in `web/src/data/` is shown. |
-| `LIVE_ACCESS_CODE` | live runs | Shared code for the protected live page. |
 | `SESSION_SECRET` | live runs | ≥32 random characters, e.g. `openssl rand -hex 32`. |
 | `LIVE_MAX_RESULTS` | optional | Default 10, capped at 25. |
 | `LIVE_MAX_TOTAL_CHARGE_USD` | optional | Default 0.50, capped at 2.00. Passed as `maxTotalChargeUsd` on every run. |
+| `LIVE_MAX_RUNS_PER_IP_HOUR` | optional | Default 6 searches per network (IP) per hour. |
 | `LIVE_MAX_RUNS_PER_DAY` | optional | Default 20 (global). Plus 3 runs per session per hour and 1 active run per session. |
 | `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` | live runs in production | Persistent rate/concurrency counters (Upstash Redis REST). Without them, production refuses live runs. |
 
@@ -77,7 +77,7 @@ in-memory counters and says so in code.
 - Tokens are read only in server modules (`import 'server-only'`) and sent to Apify in the
   `Authorization` header. `npm run check:secrets` (after `next build`) scans the client bundle for secret
   values; it found none on 2026-09-23.
-- The public page never starts runs. Live runs require the access code → an `httpOnly`, `SameSite=Strict`
+- Live search is open to every visitor. The first search creates an `httpOnly`, `SameSite=Strict`
   signed session cookie; POST routes also check `Origin`.
 - `/api/runs` returns an application-owned **signed reference** bound to the session, not the Apify run or
   dataset id. Status and item routes accept only references signed by this server for the same session, so

@@ -133,8 +133,8 @@ export function OpportunityExplorer({ items }: { items: OpportunityView[] }) {
                 </div>
             ) : (
                 <ul className="grid gap-6 lg:grid-cols-2">
-                    {shown.map((o) => (
-                        <li key={o.jobId}>
+                    {shown.map((o, i) => (
+                        <li key={o.jobId} className="animate-rise" style={{ animationDelay: `${Math.min(i, 12) * 70}ms` }}>
                             <OpportunityCard o={o} />
                         </li>
                     ))}

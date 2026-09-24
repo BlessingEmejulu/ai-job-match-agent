@@ -100,9 +100,18 @@ export interface LimitDecision {
  * Admission control for a new live run: one active run per session, a per-session hourly cap and a
  * global daily cap. `activeTtl` bounds how long a crashed run can block its session.
  */
-export async function admitRun(store: CounterStore, sid: string, limits: { perDay: number; perSessionPerHour: number; activeTtl: number }): Promise<LimitDecision> {
+export async function admitRun(
+    store: CounterStore,
+    sid: string,
+    limits: { perDay: number; perSessionPerHour: number; activeTtl: number; perIpPerHour?: number },
+    ip?: string,
+): Promise<LimitDecision> {
     const day = new Date().toISOString().slice(0, 10);
     if (!(await store.setIfAbsent(`active:${sid}`, '1', limits.activeTtl))) return { ok: false, reason: 'A run is already in progress for this session.' };
+    if (ip && limits.perIpPerHour && (await store.incr(`runs:ip:${ip}:hour`, 3600)) > limits.perIpPerHour) {
+        await store.del(`active:${sid}`);
+        return { ok: false, reason: 'Too many searches from this network. Try again in an hour.' };
+    }
     // Check the session cap first so one session's rejected attempts cannot use up the global quota.
     if ((await store.incr(`runs:${sid}:hour`, 3600)) > limits.perSessionPerHour) {
         await store.del(`active:${sid}`);
