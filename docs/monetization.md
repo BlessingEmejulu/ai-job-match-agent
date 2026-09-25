@@ -1,8 +1,10 @@
 # Monetization (pay-per-event)
 
-> **Status:** billing code is implemented and verified locally with the SDK's PPE test mode. PPE is
-> **not active** until the owner configures the event in Apify Console and publishes. Nothing in this
-> repository can switch it on.
+> **Status (2026-09-25):** pay-per-event is **active** on `blessingemejulu~ai-job-match-agent`:
+> `opportunity-delivered` $0.004 (primary) + `apify-actor-start` $0.00005, no `apify-default-dataset-item`
+> event, minimum max-charge $0.01. Cloud-verified on build 0.0.12 with a $0.02 cap: 4 opportunities
+> delivered, platform `chargedEventCounts` = 4 `opportunity-delivered` + 1 start, run stopped with
+> `charge_limit_reached`, and `RUN_SUMMARY.billing.billedEvents` = 4.
 
 ## The billable event
 
