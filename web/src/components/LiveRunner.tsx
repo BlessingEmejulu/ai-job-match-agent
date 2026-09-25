@@ -63,6 +63,7 @@ export function LiveRunner() {
     const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
     const alive = useRef(true);
     const resultsRef = useRef<HTMLElement>(null);
+    const formRef = useRef<HTMLFormElement>(null);
 
     useEffect(() => {
         alive.current = true;
@@ -78,6 +79,10 @@ export function LiveRunner() {
         const t = setInterval(() => setNow(Date.now()), 1000);
         return () => clearInterval(t);
     }, [phase]);
+
+    // Until React hydrates, a click would fall back to a native GET that reloads the page and shows nothing.
+    const [hydrated, setHydrated] = useState(false);
+    useEffect(() => setHydrated(true), []);
 
     const [revealPending, setRevealPending] = useState(false);
     const revealResults = useCallback(() => {
@@ -188,7 +193,7 @@ export function LiveRunner() {
 
     return (
         <div className="space-y-14">
-            <form onSubmit={start} aria-describedby="privacy-note" className="overflow-hidden rounded-3xl border border-line bg-paper shadow-soft">
+            <form ref={formRef} onSubmit={start} aria-describedby="privacy-note" className="overflow-hidden rounded-3xl border border-line bg-paper shadow-soft">
                 <div className="grid gap-px bg-line lg:grid-cols-2">
                     <fieldset className="space-y-6 bg-paper p-6 sm:p-10">
                         <legend className="contents">
@@ -202,7 +207,8 @@ export function LiveRunner() {
                             <input id="countries" name="countries" required defaultValue="NG" className={fieldCls} aria-describedby="countries-hint" />
                         </Field>
                         <fieldset className="space-y-2">
-                            <legend className={labelCls}>Work arrangement</legend>
+                            <legend className={labelCls}>Only show work arrangement</legend>
+                            <p className="text-xs text-muted">Optional — leave all unselected to include every arrangement.</p>
                             <div className="flex flex-wrap gap-2 pt-1">
                                 {['remote', 'hybrid', 'onsite'].map((w) => (
                                     <Choice key={w} name="workArrangements" value={w} />
@@ -210,7 +216,8 @@ export function LiveRunner() {
                             </div>
                         </fieldset>
                         <fieldset className="space-y-2">
-                            <legend className={labelCls}>Seniority</legend>
+                            <legend className={labelCls}>Only show seniority</legend>
+                            <p className="text-xs text-muted">Optional — each extra filter narrows the results.</p>
                             <div className="flex flex-wrap gap-2 pt-1">
                                 {['internship', 'graduate', 'entry', 'junior', 'mid'].map((w) => (
                                     <Choice key={w} name="seniorityLevels" value={w} />
@@ -255,8 +262,8 @@ export function LiveRunner() {
                     <p id="privacy-note" className="max-w-xl text-xs leading-relaxed text-muted">
                         Please don&apos;t enter your name, contact details or CV. Skills, experience and country are used for this search only. Matching needs skills, years and your country; otherwise the search discovers jobs only.
                     </p>
-                    <button disabled={busy} className="group relative h-12 shrink-0 overflow-hidden rounded-full bg-forest px-8 text-sm font-medium text-paper shadow-soft transition hover:bg-forest-deep hover:shadow-lift disabled:opacity-70">
-                        <span className="relative z-10">{busy ? 'Searching…' : 'Search live jobs'}</span>
+                    <button disabled={busy || !hydrated} className="group relative h-12 shrink-0 overflow-hidden rounded-full bg-forest px-8 text-sm font-medium text-paper shadow-soft transition hover:bg-forest-deep hover:shadow-lift disabled:opacity-70">
+                        <span className="relative z-10">{busy ? 'Searching…' : hydrated ? 'Search live jobs' : 'Loading…'}</span>
                         {busy && <span className="animate-shimmer absolute inset-y-0 left-0 w-1/3 bg-paper/20" aria-hidden="true" />}
                     </button>
                 </div>
@@ -310,10 +317,7 @@ export function LiveRunner() {
                     </div>
                     {summary.outcome === 'partial_source_failure' && <p className="text-sm text-amber-ink">Some boards didn&apos;t respond; these results come from the others.</p>}
                     {summary.delivered === 0 ? (
-                        <div className="animate-rise rounded-3xl border border-dashed border-line-strong bg-paper/60 px-6 py-16 text-center">
-                            <p className="font-display text-xl text-ink">No matching opportunities right now</p>
-                            <p className="mt-2 text-sm text-muted">Try more countries, fewer seniority filters, or broader role keywords.</p>
-                        </div>
+                        <NoResults summary={summary} formRef={formRef} busy={busy} />
                     ) : (
                         <OpportunityExplorer items={items} />
                     )}
@@ -326,6 +330,95 @@ export function LiveRunner() {
                     )}
                 </section>
             )}
+        </div>
+    );
+}
+
+const REASON_TEXT: Record<string, string> = {
+    ROLE_KEYWORD_MISMATCH: "didn't match your role keywords",
+    SENIORITY_MISMATCH: "weren't at the seniority you selected",
+    WORK_ARRANGEMENT_MISMATCH: "weren't in the work arrangement you selected",
+    EMPLOYMENT_TYPE_MISMATCH: "weren't the employment type you selected",
+    LOCATION_OUTSIDE_SELECTED_COUNTRIES: 'are located outside your countries',
+    DEADLINE_EXPIRED: 'had an expired deadline',
+    ELIGIBILITY_UNKNOWN: "didn't state which countries can apply",
+};
+
+/**
+ * Zero-result state: shows which filters removed how many roles (from the Actor's run summary) and
+ * offers explicit one-click re-searches. Filters are never loosened without the user's click.
+ */
+function NoResults({ summary, formRef, busy }: { summary: SummaryView; formRef: React.RefObject<HTMLFormElement | null>; busy: boolean }) {
+    const ex = summary.excluded;
+    const keywordMatched = Math.max(0, summary.listingsDiscovered - (ex.ROLE_KEYWORD_MISMATCH ?? 0) - Object.entries(ex).filter(([k]) => k.startsWith('DUPLICATE')).reduce((a, [, v]) => a + v, 0));
+    const reasons = Object.entries(ex)
+        .filter(([k, v]) => v > 0 && REASON_TEXT[k] && k !== 'ROLE_KEYWORD_MISMATCH')
+        .sort((a, b) => b[1] - a[1]);
+    const bySeniority = (ex.SENIORITY_MISMATCH ?? 0) > 0;
+    const byArrangement = (ex.WORK_ARRANGEMENT_MISMATCH ?? 0) > 0;
+    const byEmployment = (ex.EMPLOYMENT_TYPE_MISMATCH ?? 0) > 0;
+
+    // Clear the chosen filter groups in the visible form, then run the search again.
+    const retryWithout = (names: string[]) => {
+        const form = formRef.current;
+        if (!form) return;
+        for (const name of names) form.querySelectorAll<HTMLInputElement>(`input[name="${name}"]`).forEach((i) => (i.checked = false));
+        form.requestSubmit();
+    };
+
+    const btn = 'rounded-full bg-forest px-5 py-2.5 text-sm font-medium text-paper shadow-soft transition hover:bg-forest-deep disabled:opacity-60';
+    const btnGhost = 'rounded-full border border-line-strong px-5 py-2.5 text-sm font-medium text-ink transition hover:border-ink hover:bg-paper disabled:opacity-60';
+
+    return (
+        <div className="animate-rise space-y-6 rounded-3xl border border-line bg-paper p-6 shadow-soft sm:p-10">
+            <div className="space-y-2">
+                <p className="font-display text-2xl text-forest-deep">No jobs matched every filter this time</p>
+                <p className="text-sm leading-relaxed text-muted">
+                    We read {summary.listingsDiscovered.toLocaleString()} live listings.
+                    {keywordMatched > 0 ? (
+                        <>
+                            {' '}
+                            <strong className="font-medium text-ink">{keywordMatched}</strong> matched your role keywords, but your other filters removed them:
+                        </>
+                    ) : (
+                        <> None matched your role keywords — try broader words like “engineer”, “analyst” or “developer”.</>
+                    )}
+                </p>
+            </div>
+
+            {keywordMatched > 0 && reasons.length > 0 && (
+                <ul className="space-y-2">
+                    {reasons.map(([k, v], i) => (
+                        <li key={k} className="animate-rise flex items-baseline gap-3 text-sm text-ink-soft" style={{ animationDelay: `${120 + i * 80}ms` }}>
+                            <span className="min-w-[3ch] text-right font-display text-lg text-gold">{v}</span>
+                            {REASON_TEXT[k]}
+                        </li>
+                    ))}
+                </ul>
+            )}
+
+            <div className="flex flex-wrap gap-3 border-t border-line pt-6">
+                {byArrangement && (
+                    <button type="button" disabled={busy} onClick={() => retryWithout(['workArrangements'])} className={bySeniority ? btnGhost : btn}>
+                        Search again with all work arrangements
+                    </button>
+                )}
+                {bySeniority && (
+                    <button type="button" disabled={busy} onClick={() => retryWithout(['seniorityLevels'])} className={byArrangement ? btnGhost : btn}>
+                        Search again with all seniority levels
+                    </button>
+                )}
+                {(byArrangement || bySeniority || byEmployment) && (
+                    <button type="button" disabled={busy} onClick={() => retryWithout(['workArrangements', 'seniorityLevels'])} className={byArrangement && bySeniority ? btn : btnGhost}>
+                        Remove these filters and search again
+                    </button>
+                )}
+                {!byArrangement && !bySeniority && (
+                    <button type="button" onClick={() => document.getElementById('roleKeywords')?.focus()} className={btnGhost}>
+                        Edit role keywords
+                    </button>
+                )}
+            </div>
         </div>
     );
 }

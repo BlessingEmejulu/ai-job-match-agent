@@ -16,7 +16,7 @@ export function liveConfig() {
         // Hard server-side ceiling on what one website run may cost the owner.
         maxTotalChargeUsd: Math.min(Math.max(Number(process.env.LIVE_MAX_TOTAL_CHARGE_USD) || 0.5, 0.01), 2),
         perDay: intEnv('LIVE_MAX_RUNS_PER_DAY', 20, 1, 200),
-        perSessionPerHour: 3,
+        perSessionPerHour: 5,
         // Searches are open to anyone, so also cap each network (IP) per hour.
         perIpPerHour: intEnv('LIVE_MAX_RUNS_PER_IP_HOUR', 6, 1, 50),
         timeoutSecs: 180,

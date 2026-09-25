@@ -13,5 +13,7 @@ export default defineConfig({
     test: {
         include: ['test/**/*.test.ts'],
         environment: 'node',
+        // Route tests import Next.js modules on first use; allow for slow cold imports on busy machines.
+        testTimeout: 20_000,
     },
 });

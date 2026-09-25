@@ -9,6 +9,8 @@ export interface SummaryView {
     warnings: string[];
     decisions: string[];
     finishedAt: string | null;
+    /** Listings excluded by the Actor's Decide stage, by reason code (e.g. SENIORITY_MISMATCH). */
+    excluded: Record<string, number>;
 }
 
 type Obj = Record<string, unknown>;
@@ -30,5 +32,10 @@ export function summaryView(raw: unknown): SummaryView | null {
         warnings: Array.isArray(raw.warnings) ? raw.warnings.slice(0, 5).map((w) => s(w, 300)) : [],
         decisions: Array.isArray(raw.decisions) ? raw.decisions.slice(0, 10).map((d) => s(d, 400)) : [],
         finishedAt: s(raw.runFinishedAt, 40) || null,
+        excluded: Object.fromEntries(
+            Object.entries(isObj(counts.excludedByReason) ? counts.excludedByReason : {})
+                .filter(([k, v]) => /^[A-Z_]{3,60}$/.test(k) && typeof v === 'number' && Number.isFinite(v))
+                .slice(0, 20) as [string, number][],
+        ),
     };
 }

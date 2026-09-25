@@ -108,9 +108,13 @@ export function SearchOverlay({ state, onHide }: { state: OverlayState; onHide: 
                             <>
                                 <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-gold">Search complete</p>
                                 <h2 id="search-overlay-title" className="font-display text-3xl text-forest-deep">
-                                    {state.found} {state.found === 1 ? 'opportunity' : 'opportunities'} found
+                                    {state.found === 0 ? 'No exact matches' : `${state.found} ${state.found === 1 ? 'opportunity' : 'opportunities'} found`}
                                 </h2>
-                                <p className="text-sm text-muted">from {state.listings.toLocaleString()} live listings</p>
+                                <p className="text-sm text-muted">
+                                    {state.found === 0
+                                        ? `Read ${state.listings.toLocaleString()} live listings — see which filters removed them below`
+                                        : `from ${state.listings.toLocaleString()} live listings`}
+                                </p>
                             </>
                         )}
                         {state.kind === 'error' && (
