@@ -35,7 +35,13 @@ const charging = Actor.getChargingManager();
 const port: DeliveryPort = {
     isPayPerEvent: () => charging.getPricingInfo().isPayPerEvent,
     maxChargeableEvents: (event) => charging.calculateMaxEventChargeCountWithinLimit(event),
-    pushData: (record, event) => Actor.pushData(record, event),
+    // On the platform the SDK's ChargeResult also counts its synthetic dataset-item event, so the
+    // billed count for our event is taken from the ChargingManager's per-event counter instead.
+    pushData: async (record, event) => {
+        const before = charging.getChargedEventCount(event);
+        const result = await Actor.pushData(record, event);
+        return { ...result, chargedCount: charging.getChargedEventCount(event) - before };
+    },
     saveDeliveredIds: (ids) => Actor.setValue(STATE_KEY, { deliveredJobIds: ids }),
 };
 const delivery = new DeliveryQueue(port, previous);
