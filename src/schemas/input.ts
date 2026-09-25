@@ -47,6 +47,8 @@ export const inputSchema = z
         employmentTypes: z.array(z.enum(EMPLOYMENT_TYPES)).max(EMPLOYMENT_TYPES.length).default([]),
         seniorityLevels: z.array(z.enum(SENIORITY_LEVELS)).max(SENIORITY_LEVELS.length).default([]),
         workArrangements: z.array(z.enum(WORK_ARRANGEMENTS)).max(WORK_ARRANGEMENTS.length).default([]),
+        /** strict: filters remove non-matching jobs. relaxed: seniority/arrangement/type and partial keyword matches only rank. */
+        filterMode: z.enum(['strict', 'relaxed']).default('strict'),
         includeUnknownEligibility: z.boolean().default(true),
         includeUnknownDeadline: z.boolean().default(true),
         sourceIds: z.array(shortText(60)).max(50).optional(),

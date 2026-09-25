@@ -5,7 +5,7 @@ import { DELIVERY_EVENT } from '../billing/delivery.js';
 import { Deduplicator } from '../dedup/index.js';
 import type { EligibilityContext, EligibilityResult } from '../eligibility/assess.js';
 import { explainMatch } from '../matching/explain.js';
-import { keywordMatches, roleAlignment } from '../matching/roles.js';
+import { keywordMatches, phraseCoverage, roleAlignment } from '../matching/roles.js';
 import { scoreMatch } from '../matching/score.js';
 import type { ActorInput } from '../schemas/input.js';
 import { type Opportunity, opportunitySchema } from '../schemas/opportunity.js';
@@ -94,6 +94,8 @@ interface Candidate {
     job: AnalyzedListing;
     filterElig: EligibilityResult;
     outElig: EligibilityResult;
+    /** Relaxed mode: how many of the visitor's preferences this job misses (0 = fits all). Ranks, never excludes. */
+    preferenceMisses: number;
 }
 
 const ELIG_RANK = { explicitly_supported: 0, unknown: 1, explicitly_restricted: 2 } as const;
@@ -128,6 +130,8 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
     const outputCtx: EligibilityContext = profile
         ? { baseCountries: [profile.country], authorizationCountries: profile.workAuthorizationCountries, mode: 'match' }
         : discoverCtx;
+    const relaxed = input.filterMode === 'relaxed';
+    if (relaxed) decide('DECIDE: relaxed filters — seniority, work arrangement and employment type rank results instead of removing them; country restrictions still apply.');
     const keywords = input.roleKeywords.length ? input.roleKeywords : (profile?.desiredRoles ?? []);
     if (!input.roleKeywords.length && keywords.length) decide(`DECIDE: no roleKeywords given; filtering titles by the candidate's desired roles.`);
 
@@ -170,13 +174,20 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
                     continue;
                 }
                 const reasons: string[] = [];
+                let preferenceMisses = 0;
                 if (keywords.length) {
                     const hit = keywords.find((k) => keywordMatches(k, raw.title, raw.department));
-                    if (!hit) {
+                    // Relaxed: a title sharing at least half of a keyword's words is kept, ranked below full matches.
+                    const partial = !hit && relaxed ? keywords.find((k) => phraseCoverage(k, `${raw.title} ${raw.department ?? ''}`) >= 0.5) : undefined;
+                    if (!hit && !partial) {
                         exclude('ROLE_KEYWORD_MISMATCH');
                         continue;
                     }
-                    reasons.push(`ROLE_KEYWORD_MATCH:${hit}`);
+                    if (hit) reasons.push(`ROLE_KEYWORD_MATCH:${hit}`);
+                    else {
+                        reasons.push(`ROLE_KEYWORD_PARTIAL_MATCH:${partial}`);
+                        preferenceMisses++;
+                    }
                 }
                 const analyzed = analyzeListing(raw, deps.now());
                 if (!analyzed.ok) {
@@ -190,22 +201,34 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
                 if (input.employmentTypes.length) {
                     if (job.employment.value === 'unknown') reasons.push('EMPLOYMENT_TYPE_UNKNOWN_KEPT');
                     else if (!input.employmentTypes.includes(job.employment.value)) {
-                        exclude('EMPLOYMENT_TYPE_MISMATCH');
-                        continue;
+                        if (!relaxed) {
+                            exclude('EMPLOYMENT_TYPE_MISMATCH');
+                            continue;
+                        }
+                        reasons.push(`EMPLOYMENT_TYPE_PREFERENCE_MISSED:${job.employment.value}`);
+                        preferenceMisses++;
                     } else reasons.push(`EMPLOYMENT_TYPE_MATCH:${job.employment.value}`);
                 }
                 if (input.seniorityLevels.length) {
                     if (job.seniority.value === 'unknown') reasons.push('SENIORITY_UNKNOWN_KEPT');
                     else if (!input.seniorityLevels.includes(job.seniority.value)) {
-                        exclude('SENIORITY_MISMATCH');
-                        continue;
+                        if (!relaxed) {
+                            exclude('SENIORITY_MISMATCH');
+                            continue;
+                        }
+                        reasons.push(`SENIORITY_PREFERENCE_MISSED:${job.seniority.value}`);
+                        preferenceMisses++;
                     } else reasons.push(`SENIORITY_MATCH:${job.seniority.value}`);
                 }
                 if (input.workArrangements.length) {
                     if (job.arrangement.value === 'unspecified') reasons.push('WORK_ARRANGEMENT_UNSPECIFIED_KEPT');
                     else if (!input.workArrangements.includes(job.arrangement.value)) {
-                        exclude('WORK_ARRANGEMENT_MISMATCH');
-                        continue;
+                        if (!relaxed) {
+                            exclude('WORK_ARRANGEMENT_MISMATCH');
+                            continue;
+                        }
+                        reasons.push(`WORK_ARRANGEMENT_PREFERENCE_MISSED:${job.arrangement.value}`);
+                        preferenceMisses++;
                     } else reasons.push(`WORK_ARRANGEMENT_MATCH:${job.arrangement.value}`);
                 }
                 if (job.deadlineStatus === 'expired') {
@@ -233,7 +256,7 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
                 }
                 reasons.push(`LOCATION_${filterElig.status.toUpperCase()}`);
                 job.decisionReasons = reasons;
-                candidates.push({ job, filterElig, outElig });
+                candidates.push({ job, filterElig, outElig, preferenceMisses });
             }
         }
     };
@@ -276,6 +299,7 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
 
     // ---------------- ANALYZE (bounded AI on the most uncertain shortlisted records) ----------------
     const prelim = (c: Candidate) => [
+        c.preferenceMisses,
         ELIG_RANK[c.outElig.status],
         profile ? -Math.max(0, ...profile.desiredRoles.map((r) => roleAlignment(r, `${c.job.raw.title} ${c.job.raw.department ?? ''}`))) : 0,
         EARLY_RANK[earlyFit(c.job)],
@@ -365,7 +389,9 @@ export async function runPipeline(input: ActorInput, deps: PipelineDeps): Promis
         records.push(valid.data);
     }
 
+    const misses = new Map(finalists.map((c) => [c.job.jobId, c.preferenceMisses]));
     const finalKey = (o: Opportunity) => [
+        misses.get(o.jobId) ?? 0,
         ELIG_RANK[o.geographicEligibility.status],
         o.match ? -(o.match.score ?? -1) : 0,
         EARLY_RANK[o.earlyCareerFit],

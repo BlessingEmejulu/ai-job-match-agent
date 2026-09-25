@@ -207,8 +207,8 @@ export function LiveRunner() {
                             <input id="countries" name="countries" required defaultValue="NG" className={fieldCls} aria-describedby="countries-hint" />
                         </Field>
                         <fieldset className="space-y-2">
-                            <legend className={labelCls}>Only show work arrangement</legend>
-                            <p className="text-xs text-muted">Optional — leave all unselected to include every arrangement.</p>
+                            <legend className={labelCls}>Preferred work arrangement</legend>
+                            <p className="text-xs text-muted">Optional — matching jobs are listed first; other jobs still show.</p>
                             <div className="flex flex-wrap gap-2 pt-1">
                                 {['remote', 'hybrid', 'onsite'].map((w) => (
                                     <Choice key={w} name="workArrangements" value={w} />
@@ -216,8 +216,8 @@ export function LiveRunner() {
                             </div>
                         </fieldset>
                         <fieldset className="space-y-2">
-                            <legend className={labelCls}>Only show seniority</legend>
-                            <p className="text-xs text-muted">Optional — each extra filter narrows the results.</p>
+                            <legend className={labelCls}>Preferred seniority</legend>
+                            <p className="text-xs text-muted">Optional — ranks matching levels first without hiding the rest.</p>
                             <div className="flex flex-wrap gap-2 pt-1">
                                 {['internship', 'graduate', 'entry', 'junior', 'mid'].map((w) => (
                                     <Choice key={w} name="seniorityLevels" value={w} />

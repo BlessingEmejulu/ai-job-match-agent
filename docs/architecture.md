@@ -55,6 +55,11 @@ For each listing, in order, with a reason code recorded for every exclusion
    with no keywords, the candidate's desired roles are used.
 3. Employment type, seniority and work arrangement filters — explicit mismatches are dropped; **unknown
    values are kept and labelled** (`*_UNKNOWN_KEPT`) rather than guessed.
+
+   With `filterMode: "relaxed"` (used by the website) these filters rank instead of exclude: mismatches are
+   kept with `*_PREFERENCE_MISSED:<value>`, a title covering at least half of a keyword's words is kept with
+   `ROLE_KEYWORD_PARTIAL_MATCH:<keyword>`, and records are ordered by the number of missed preferences
+   before any other ranking key. Geography and deadlines are never relaxed.
 4. Deadline — explicitly expired postings are dropped; unknown deadlines are kept unless
    `includeUnknownDeadline` is false.
 5. Geography — assessed against the selected countries. Explicit conflicts are dropped

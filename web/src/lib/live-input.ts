@@ -55,6 +55,8 @@ export function buildActorInput(raw: unknown, caps: LiveCaps): { ok: true; input
         countries: f.countries,
         workArrangements: f.workArrangements,
         seniorityLevels: f.seniorityLevels,
+        // The website treats these choices as preferences: matching jobs rank first, others still show.
+        filterMode: 'relaxed',
         includeUnknownEligibility: true,
         includeUnknownDeadline: true,
         maxResults: Math.max(1, Math.min(caps.maxResults, 25)),

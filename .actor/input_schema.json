@@ -65,6 +65,15 @@
             },
             "default": []
         },
+        "filterMode": {
+            "title": "How strictly to apply filters",
+            "type": "string",
+            "description": "Strict: jobs that don't match your seniority, work arrangement or employment type are removed. Relaxed: they are kept and ranked below jobs that fit, and titles matching at least half of a role keyword's words are included. Country restrictions always apply.",
+            "editor": "select",
+            "enum": ["strict", "relaxed"],
+            "enumTitles": ["Strict — remove non-matching jobs", "Relaxed — rank matching jobs first"],
+            "default": "strict"
+        },
         "includeUnknownEligibility": {
             "title": "Include jobs with unknown location eligibility",
             "type": "boolean",

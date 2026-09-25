@@ -181,6 +181,28 @@ describe('pipeline (fixtures)', () => {
         expect(summary.billing.billedEvents).toBe(0);
     });
 
+    it('relaxed filters keep preference misses, rank them after fits and still enforce countries', async () => {
+        const prefs = { ...baseInput, seniorityLevels: ['executive'], workArrangements: ['hybrid'] };
+        const strict = await run(prefs);
+        const relaxed = await run({ ...prefs, filterMode: 'relaxed' });
+        expect(relaxed.records.length).toBeGreaterThan(strict.records.length);
+        expect(relaxed.summary.counts.excludedByReason.SENIORITY_MISMATCH ?? 0).toBe(0);
+        expect(relaxed.summary.counts.excludedByReason.WORK_ARRANGEMENT_MISMATCH ?? 0).toBe(0);
+        const titles = relaxed.records.map((r) => r.title);
+        expect(titles).not.toContain('Data Analyst (Remote US)');
+        expect(titles).not.toContain('Data Analyst (expired)');
+        const misses = relaxed.records.map((r) => r.decisionReasons.filter((d) => d.includes('PREFERENCE_MISSED') || d.includes('PARTIAL_MATCH')).length);
+        expect(misses.some((m) => m > 0)).toBe(true);
+        expect(misses).toEqual([...misses].sort((a, b) => a - b));
+    });
+
+    it('relaxed filters accept titles sharing half of a multi-word keyword, after full matches', async () => {
+        const strict = await run({ ...baseInput, roleKeywords: ['data scientist'] });
+        const relaxed = await run({ ...baseInput, roleKeywords: ['data scientist'], filterMode: 'relaxed' });
+        expect(relaxed.records.length).toBeGreaterThan(strict.records.length);
+        expect(relaxed.records.some((r) => r.decisionReasons.some((d) => d.startsWith('ROLE_KEYWORD_PARTIAL_MATCH:')))).toBe(true);
+    });
+
     it('stops at the charge limit and labels the run budget-limited', async () => {
         const { summary, records } = await run(baseInput, { budget: 1 });
         expect(records).toHaveLength(1);

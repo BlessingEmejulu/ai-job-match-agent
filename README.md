@@ -57,7 +57,7 @@ AI Job Match Agent turns public employer job boards into a structured, explained
 7. Click **Start**. A small run usually finishes in 10 to 40 seconds. Results appear in the **Output** tab (*Opportunities* and *Match details* views); the run summary is under **Storage → Key-value store → RUN_SUMMARY**.
 8. Open `applicationUrl` on any result to apply on the employer's own page.
 
-**Tips for a good first run:** keep the default limits (20 results, 60 requests, 180 s), start with 1 to 3 countries, and use early-career seniority levels (`internship`, `graduate`, `entry`, `junior`) if you are starting out.
+**Tips for a good first run:** keep the default limits (20 results, 60 requests, 180 s), start with 1 to 3 countries, and use early-career seniority levels (`internship`, `graduate`, `entry`, `junior`) if you are starting out. If a strict search returns nothing, set **How strictly to apply filters** to *Relaxed*: jobs that miss your seniority, work arrangement or employment type are then kept and ranked after the ones that fit (country restrictions still apply).
 
 ### Option 2: Apify API
 
