@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="t">
+  <title id="t">AI Job Match Agent</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#24473c"/>
+      <stop offset="1" stop-color="#132820"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e2c48c"/>
+      <stop offset="1" stop-color="#b8904f"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="60" fill="url(#bg)"/>
+  <circle cx="112" cy="116" r="60" fill="none" stroke="#fffdf8" stroke-width="18"/>
+  <path d="M157 161 L197 201" stroke="url(#gold)" stroke-width="24" stroke-linecap="round"/>
+  <path d="M84 118 L104 138 L142 97" fill="none" stroke="url(#gold)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M198 36 C200.5 52 204 55.5 220 58 C204 60.5 200.5 64 198 80 C195.5 64 192 60.5 176 58 C192 55.5 195.5 52 198 36 Z" fill="url(#gold)"/>
+</svg>

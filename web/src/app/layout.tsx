@@ -24,7 +24,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
                 </a>
                 <header className="sticky top-0 z-40 border-b border-line/70 bg-ivory/85 backdrop-blur supports-[backdrop-filter]:bg-ivory/70">
                     <nav aria-label="Main" className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-4 sm:px-8">
-                        <Link href="/" className="group flex items-baseline gap-2">
+                        <Link href="/" className="group flex items-center gap-2.5">
+                            {/* eslint-disable-next-line @next/next/no-img-element -- static SVG mark, no optimisation needed */}
+                            <img src="/brand/logo.svg" alt="" width={36} height={36} className="h-9 w-9 shrink-0 rounded-[10px] shadow-soft transition group-hover:scale-[1.04]" />
                             <span className="font-display text-xl tracking-tight text-forest-deep">AI Job Match</span>
                             <span className="hidden text-[11px] font-medium uppercase tracking-[0.22em] text-gold sm:inline">Agent</span>
                         </Link>
